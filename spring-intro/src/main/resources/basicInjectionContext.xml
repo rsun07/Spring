@@ -2,8 +2,9 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <!--Config by constructor-->
     <bean id="tank" class="com.xiaoming.spring.basic_injection.Car">
@@ -78,5 +79,16 @@
                 </map>
             </property>
         </bean>
+
+
+    <bean id="Jane" class="com.xiaoming.spring.basic_injection.Person">
+        <property name="name" value="Jane"></property>
+        <property name="carMap" ref="CarMap"></property>
+    </bean>
+
+    <util:map id="CarMap">
+        <entry key="Tank Car" value-ref="tank"></entry>
+        <entry key="My Car" value-ref="carInternalEngine"/>
+    </util:map>
 
 </beans>

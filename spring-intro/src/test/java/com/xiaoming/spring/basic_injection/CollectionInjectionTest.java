@@ -20,4 +20,12 @@ public class CollectionInjectionTest {
         Person peter = (Person) ctx.getBean("Peter");
         System.out.println(peter.toString());
     }
+
+    @Test
+    public void testUtilMapInjection() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
+
+        Person peter = (Person) ctx.getBean("Jane");
+        System.out.println(peter.toString());
+    }
 }
