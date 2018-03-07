@@ -3,6 +3,7 @@ package com.xiaoming.spring.basic_injection;
 public class Engine {
     private int volumn;
 
+    public Engine(){}
 
     public Engine(int volumn) {
         this.volumn = volumn;
