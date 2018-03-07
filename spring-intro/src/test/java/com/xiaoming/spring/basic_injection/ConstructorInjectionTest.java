@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ConstructorInjectionTest {
     @Test
     public void test() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("constructorInjectionContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
 
         Car tank = (Car) ctx.getBean("tank");
         System.out.println(tank.toString());

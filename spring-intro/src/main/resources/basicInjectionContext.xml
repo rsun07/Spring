@@ -48,21 +48,35 @@
         </constructor-arg>
     </bean>
 
-    <!--Set property for Collection-->
-    <bean id="Jerry" class="com.xiaoming.spring.basic_injection.Person">
-        <property name="name" value="Jerry"></property>
-        <property name="cars">
-            <list>
-                <ref bean="tank"/>
-                <ref bean="carInternalEngine"/>
-                <bean class="com.xiaoming.spring.basic_injection.Car">
-                    <constructor-arg name="type" value="Motor"></constructor-arg>
-                    <constructor-arg name="price" value="4800"></constructor-arg>
-                    <constructor-arg index="2">
-                        <value>300</value>
-                    </constructor-arg>
-                </bean>
-            </list>
-        </property>
-    </bean>
+    <!--Injection for Collection-->
+        <!--Injection for List-->
+
+        <bean id="Jerry" class="com.xiaoming.spring.basic_injection.Person">
+                <property name="name" value="Jerry"></property>
+                <property name="cars">
+                    <list>
+                        <ref bean="tank"/>
+                        <ref bean="carInternalEngine"/>
+                        <bean class="com.xiaoming.spring.basic_injection.Car">
+                            <constructor-arg name="type" value="Motor"></constructor-arg>
+                            <constructor-arg name="price" value="4800"></constructor-arg>
+                            <constructor-arg index="2">
+                                <value>300</value>
+                            </constructor-arg>
+                        </bean>
+                    </list>
+                </property>
+            </bean>
+
+        <!--Injection for Map-->
+        <bean id="Peter" class="com.xiaoming.spring.basic_injection.Person">
+            <property name="name" value="Jerry"></property>
+            <property name="carMap">
+                <map>
+                    <entry key="Tank Car" value-ref="tank"></entry>
+                    <entry key="My Car" value-ref="carInternalEngine"/>
+                </map>
+            </property>
+        </bean>
+
 </beans>

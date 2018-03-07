@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class InternalBeanTest {
 
-    private static final ApplicationContext CTX = new ClassPathXmlApplicationContext("constructorInjectionContext.xml");
+    private static final ApplicationContext CTX = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
 
     @Test
     public void test() {

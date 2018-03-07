@@ -7,9 +7,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class CollectionInjectionTest {
     @Test
     public void testInjectList() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("constructorInjectionContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
 
         Person jerry = (Person) ctx.getBean("Jerry");
         System.out.println(jerry.toString());
+    }
+
+    @Test
+    public void testInjectMap() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
+
+        Person peter = (Person) ctx.getBean("Peter");
+        System.out.println(peter.toString());
     }
 }
