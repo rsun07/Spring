@@ -1,8 +1,10 @@
 package com.xiaoming.spring.basic_annotation_injection;
 
+import com.xiaoming.spring.basic_annotation_injection.autowired_bean.MyNotRequiredAutowired;
 import com.xiaoming.spring.basic_annotation_injection.autowired_bean.MyService;
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -33,5 +35,16 @@ public class AnnotationInjectionTest {
     public void testSetterAutowired() {
         MyService myService = (MyService) appContext.getBean("mySetterAutowired");
         Assert.assertEquals("myRepo", myService.showRepo());
+    }
+
+    @Test(expected = NoSuchBeanDefinitionException.class)
+    public void testNotScannedBean() {
+        appContext.getBean("not scanned");
+    }
+
+    @Test
+    public void testNotRequired() {
+        MyNotRequiredAutowired myService = (MyNotRequiredAutowired) appContext.getBean("myNotRequiredAutowired");
+        Assert.assertNull(myService.getMyRepo());
     }
 }
