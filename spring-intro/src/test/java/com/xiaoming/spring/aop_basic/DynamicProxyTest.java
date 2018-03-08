@@ -13,6 +13,8 @@ public class DynamicProxyTest {
 
         proxy.add(2, 8);
         proxy.sub(8, 3);
+        proxy.mul(8,3);
+        proxy.div(8,3);
 
         // com.xiaoming.spring.aop_basic.dynamic_proxy_intro.CalculatorImpl
         System.out.println(target.getClass().getName());

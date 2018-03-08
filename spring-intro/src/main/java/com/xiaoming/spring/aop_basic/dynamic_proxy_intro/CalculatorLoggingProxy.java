@@ -36,7 +36,7 @@ public class CalculatorLoggingProxy {
                 String methodName = method.getName();
                 System.out.println("Running the " + methodName + " method begins with " + Arrays.asList(args));
                 Object result = method.invoke(target, args);
-                System.out.println("Running the " + methodName + " method ends with " + result);
+                System.out.println("Running the " + methodName + " method ends with " + result + "\n");
                 return result;
             }
         };

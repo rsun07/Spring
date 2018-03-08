@@ -15,5 +15,7 @@ public class AopTest {
 
         calculator.add(2, 8);
         calculator.sub(8, 3);
+        calculator.mul(8,3);
+        calculator.div(8,3);
     }
 }
