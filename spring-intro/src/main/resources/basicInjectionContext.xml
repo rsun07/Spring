@@ -91,4 +91,16 @@
         <entry key="My Car" value-ref="carInternalEngine"/>
     </util:map>
 
+
+    <bean id = "singletonEngine" class = "com.xiaoming.spring.basic_injection.Engine">
+        <constructor-arg value="1500"></constructor-arg>
+    </bean>
+
+
+    <bean id = "prototypeEngine"
+          class = "com.xiaoming.spring.basic_injection.Engine"
+          scope = "prototype">
+        <constructor-arg value="1500"></constructor-arg>
+    </bean>
+
 </beans>
