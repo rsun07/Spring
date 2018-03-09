@@ -6,6 +6,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -25,6 +26,14 @@ import java.util.List;
 @Component
 public class LoggingAspect {
 
+    /**
+     * Use to define the <Joint Point>
+     */
+    @Pointcut("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))")
+    public void declareJointPointExpress() {
+
+    }
+
     /* using star to indicate any method
         could also be "execution(* com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))"
         means any access modifier and return type
@@ -32,7 +41,7 @@ public class LoggingAspect {
         "execution(* com.xiaoming.spring.aop_basic.spring_aop.*.*(int, int))"
         means all the Classes in this package and all the methods of those classes whose parameters are two ints
     */
-    @Before("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))")
+    @Before("declareJointPointExpress()")
     public void beforeAdvice(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());
@@ -43,7 +52,7 @@ public class LoggingAspect {
     //  Even tough exception throws, @After will still execute.
     //  But After advice cannot get the return value of the function.
 
-    @After("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))")
+    @After("declareJointPointExpress()")
     public void afterAdvice(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());
@@ -53,7 +62,7 @@ public class LoggingAspect {
 
     // Wont' run if exception throws.
     // But @AfterReturning method can get the target method's return value.
-    @AfterReturning(value = "execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))",
+    @AfterReturning(value = "declareJointPointExpress()",
                     returning = "result")
     public void afterReturningAdvice(JoinPoint joinPoint, Object result) {
         String methodName = joinPoint.getSignature().getName();
