@@ -27,7 +27,7 @@ public class AroundAdvice {
      */
 
 
-    @Around("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.divide(int, int))")
+    @Around("execution(public double com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.divide(int, int))")
     public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
         Object result = null;
         String methodName = joinPoint.getSignature().getName();
@@ -41,14 +41,15 @@ public class AroundAdvice {
             result = joinPoint.proceed();
             // @AfterReturning advice
             System.out.println("@Around @AfterReturning The methods <" + methodName + "> ends with " + result);
+            // @After advice
+            System.out.println("@Around @After <" + methodName + "> method ends. Running even though exception was threw ");
         } catch (Throwable e) {
             // @AfterThrowing advice
-            System.out.println("@Around @AfterReturning The methods <" + methodName + "> throws Throwable: " + e.getMessage());
+            System.out.println("@Around @AfterThrow The methods <" + methodName + "> throws Throwable: " + e.getMessage());
+            // @After advice
+            System.out.println("@Around @After <" + methodName + "> method ends. Running even though exception was threw ");
             throw new RuntimeException(e);
         }
-        // @After advice
-        System.out.println("@Around @After <" + methodName + "> method ends. Running even though exception was threw ");
-
         return result;
     }
 }

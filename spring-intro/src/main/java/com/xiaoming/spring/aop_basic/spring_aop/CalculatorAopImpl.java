@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Component("aopCalculator")
 public class CalculatorAopImpl implements Calculator {
+    CalculatorAopImpl() {
+    }
+
     public int add(int a, int b) {
         int result = a + b;
         return result;
@@ -26,7 +29,7 @@ public class CalculatorAopImpl implements Calculator {
     }
 
     // test method for around advice @Around
-    public int divide(int a, int b) {
+    public double divide(int a, int b) {
         int result = a / b;
         return result;
     }

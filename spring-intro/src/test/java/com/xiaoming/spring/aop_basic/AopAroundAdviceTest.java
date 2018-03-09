@@ -16,7 +16,7 @@ public class AopAroundAdviceTest {
         calculator.divide(8,3);
     }
 
-    @Test(expected = ArithmeticException.class)
+    @Test(expected = RuntimeException.class)
     public void testException() {
         // @Begin advice will run
         // @After advice will run even though exception throw

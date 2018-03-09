@@ -43,13 +43,18 @@ public class CalculatorLoggingProxy {
                 try {
                     result = method.invoke(target, args);
                     // For AOP, the @AfterRunning advice will execute here
+
+                    // For AOP, the @After advice will execute here
+                    // Because Exception may through before, so After advice cannot get the return value
                 } catch (Exception e) {
                     // For AOP, the @AfterThrowing advice will execute here
+
+                    // For AOP, the @After advice will execute here
+                    // Because Exception may through before, so After advice cannot get the return value
+                    // so whatever situation, @After advice got executed
                     e.printStackTrace();
                 }
 
-                // For AOP, the @After advice will execute here
-                // Because Exception may through before, so After advice cannot get the return value
 
                 System.out.println("Running the " + methodName + " method ends with " + result + "\n");
                 return result;
