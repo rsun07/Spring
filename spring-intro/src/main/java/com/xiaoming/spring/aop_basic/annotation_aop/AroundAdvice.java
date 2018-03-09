@@ -1,4 +1,4 @@
-package com.xiaoming.spring.aop_basic.spring_aop;
+package com.xiaoming.spring.aop_basic.annotation_aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -27,7 +27,7 @@ public class AroundAdvice {
      */
 
 
-    @Around("execution(public double com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.divide(int, int))")
+    @Around("execution(public double com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.divide(int, int))")
     public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
         Object result = null;
         String methodName = joinPoint.getSignature().getName();

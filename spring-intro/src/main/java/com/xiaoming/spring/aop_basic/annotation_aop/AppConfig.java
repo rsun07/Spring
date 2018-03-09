@@ -1,6 +1,5 @@
-package com.xiaoming.spring.aop_basic.spring_aop;
+package com.xiaoming.spring.aop_basic.annotation_aop;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
 @Configuration
-@ComponentScan("com.xiaoming.spring.aop_basic.spring_aop")
+@ComponentScan("com.xiaoming.spring.aop_basic.annotation_aop")
 public class AppConfig {
 
     // If you use the bean here, the target class must have a constructor!!!

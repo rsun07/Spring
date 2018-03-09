@@ -1,4 +1,4 @@
-package com.xiaoming.spring.aop_basic.spring_aop;
+package com.xiaoming.spring.aop_basic.annotation_aop;
 
 import com.xiaoming.spring.aop_basic.traditional_impl.Calculator;
 import org.springframework.stereotype.Component;

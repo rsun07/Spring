@@ -1,8 +1,7 @@
 package com.xiaoming.spring.aop_basic;
 
-import com.xiaoming.spring.aop_basic.spring_aop.AppConfig;
-import com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl;
-import com.xiaoming.spring.aop_basic.traditional_impl.Calculator;
+import com.xiaoming.spring.aop_basic.annotation_aop.AppConfig;
+import com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

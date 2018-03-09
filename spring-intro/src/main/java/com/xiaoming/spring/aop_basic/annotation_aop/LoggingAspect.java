@@ -1,4 +1,4 @@
-package com.xiaoming.spring.aop_basic.spring_aop;
+package com.xiaoming.spring.aop_basic.annotation_aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -29,16 +29,16 @@ public class LoggingAspect {
     /**
      * Use to define the <Joint Point> for reuse.
      */
-    @Pointcut("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))")
+    @Pointcut("execution(public int com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.*(int, int))")
     public void declareJointPointExpress() {
 
     }
 
     /* using star to indicate any method
-        could also be "execution(* com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))"
+        could also be "execution(* com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.*(int, int))"
         means any access modifier and return type
 
-        "execution(* com.xiaoming.spring.aop_basic.spring_aop.*.*(int, int))"
+        "execution(* com.xiaoming.spring.aop_basic.annotation_aop.*.*(int, int))"
         means all the Classes in this package and all the methods of those classes whose parameters are two ints
     */
     @Before("declareJointPointExpress()")
@@ -70,7 +70,7 @@ public class LoggingAspect {
     }
 
     // Can access the exception object that throws by the target method
-    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))",
+    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.*(int, int))",
                    throwing = "ex")
     public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex) {
         String methodName = joinPoint.getSignature().getName();
@@ -78,7 +78,7 @@ public class LoggingAspect {
     }
 
     // Can specify execution for which Exception type!
-    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))",
+    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.*(int, int))",
             throwing = "ex")
     public void afterThrowingNullpointerException(JoinPoint joinPoint, NullPointerException ex) {
         String methodName = joinPoint.getSignature().getName();
@@ -86,7 +86,7 @@ public class LoggingAspect {
     }
 
     // Can specify execution for which Exception type!
-    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))",
+    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.*(int, int))",
             throwing = "ex")
     public void afterThrowingArithmeticException(JoinPoint joinPoint, ArithmeticException ex) {
         String methodName = joinPoint.getSignature().getName();
