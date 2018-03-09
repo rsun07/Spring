@@ -15,7 +15,14 @@ import java.util.List;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(public double com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.add(double, double))")
+    /* using star to indicate any method
+        could also be "execution(* com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(double, double))"
+        means any access modifier and return type
+
+        "execution(* com.xiaoming.spring.aop_basic.spring_aop.*.*(double, double))"
+        means all the Classes in this package and all the methods of those classes whose parameters are two doubles
+    */
+    @Before("execution(public double com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(double, double))")
     public void beforeMethod(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());
