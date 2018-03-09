@@ -74,7 +74,7 @@ public class LoggingAspect {
                    throwing = "ex")
     public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex) {
         String methodName = joinPoint.getSignature().getName();
-        System.out.println("@AfterReturning The methods <" + methodName + "> throws Exception: " + ex.getMessage());
+        System.out.println("@AfterThrowing The methods <" + methodName + "> throws Exception: " + ex.getMessage());
     }
 
     // Can specify execution for which Exception type!
@@ -82,14 +82,14 @@ public class LoggingAspect {
             throwing = "ex")
     public void afterThrowingNullpointerException(JoinPoint joinPoint, NullPointerException ex) {
         String methodName = joinPoint.getSignature().getName();
-        System.out.println("@AfterReturning The methods <" + methodName + "> throws NullPointerException: " + ex.getMessage());
+        System.out.println("@AfterThrowing The methods <" + methodName + "> throws NullPointerException: " + ex.getMessage());
     }
 
     // Can specify execution for which Exception type!
-    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.*(int, int))",
+    @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.annotation_aop.CalculatorAopImpl.*(..))",
             throwing = "ex")
     public void afterThrowingArithmeticException(JoinPoint joinPoint, ArithmeticException ex) {
         String methodName = joinPoint.getSignature().getName();
-        System.out.println("@AfterReturning The methods <" + methodName + "> throws ArithmeticException: " + ex.getMessage());
+        System.out.println("@AfterThrowing The methods <" + methodName + "> throws ArithmeticException: " + ex.getMessage());
     }
 }
