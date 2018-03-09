@@ -27,7 +27,7 @@ public class LoggingAspect {
     public void beforeMethod(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());
-        System.out.println("Running the " + methodName + " method begins with " + args);
+        System.out.println("Running the <" + methodName + "> method begins with " + args);
     }
 
     /*
@@ -38,6 +38,6 @@ public class LoggingAspect {
     public void afterMethod(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());
-        System.out.println("Running the " + methodName + " method after method execute. Running even though exception was threw ");
+        System.out.println("<" + methodName + "> method ends. Running even though exception was threw ");
     }
 }

@@ -33,9 +33,24 @@ public class CalculatorLoggingProxy {
          */
         InvocationHandler invocationHandler = new InvocationHandler() {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                // For AOP, the @Before advice will execute here
+
+
                 String methodName = method.getName();
                 System.out.println("Running the " + methodName + " method begins with " + Arrays.asList(args));
-                Object result = method.invoke(target, args);
+
+                Object result = null;
+                try {
+                    result = method.invoke(target, args);
+                    // For AOP, the @AfterRunning advice will execute here
+                } catch (Exception e) {
+                    // For AOP, the @AfterThrowing advice will execute here
+                    e.printStackTrace();
+                }
+
+                // For AOP, the @After advice will execute here
+                // Because Exception may through before, so After advice cannot get the return value
+
                 System.out.println("Running the " + methodName + " method ends with " + result + "\n");
                 return result;
             }
