@@ -24,4 +24,10 @@ public class CalculatorAopImpl implements Calculator {
         int result = a / b;
         return result;
     }
+
+    // test method for around advice @Around
+    public int divide(int a, int b) {
+        int result = a / b;
+        return result;
+    }
 }

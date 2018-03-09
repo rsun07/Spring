@@ -26,7 +26,7 @@ public class LoggingAspect {
         means all the Classes in this package and all the methods of those classes whose parameters are two ints
     */
     @Before("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))")
-    public void beforeMethod(JoinPoint joinPoint) {
+    public void beforeAdvice(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());
         System.out.println("@Before Running the <" + methodName + "> method begins with " + args);
@@ -37,7 +37,7 @@ public class LoggingAspect {
     //  But After advice cannot get the return value of the function.
 
     @After("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))")
-    public void afterMethod(JoinPoint joinPoint) {
+    public void afterAdvice(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());
         System.out.println("@After <" + methodName + "> method ends. Running even though exception was threw ");
@@ -48,7 +48,7 @@ public class LoggingAspect {
     // But @AfterReturning method can get the target method's return value.
     @AfterReturning(value = "execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))",
                     returning = "result")
-    public void afterReturningMethod(JoinPoint joinPoint, Object result) {
+    public void afterReturningAdvice(JoinPoint joinPoint, Object result) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("@AfterReturning The methods <" + methodName + "> ends with " + result);
     }
@@ -56,7 +56,7 @@ public class LoggingAspect {
     // Can access the exception object that throws by the target method
     @AfterThrowing(value = "execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))",
                    throwing = "ex")
-    public void afterThrowingMethod(JoinPoint joinPoint, Exception ex) {
+    public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("@AfterReturning The methods <" + methodName + "> throws Exception: " + ex.getMessage());
     }
