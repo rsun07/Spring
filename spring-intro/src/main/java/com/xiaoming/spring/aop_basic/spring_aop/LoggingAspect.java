@@ -27,7 +27,7 @@ import java.util.List;
 public class LoggingAspect {
 
     /**
-     * Use to define the <Joint Point>
+     * Use to define the <Joint Point> for reuse.
      */
     @Pointcut("execution(public int com.xiaoming.spring.aop_basic.spring_aop.CalculatorAopImpl.*(int, int))")
     public void declareJointPointExpress() {
