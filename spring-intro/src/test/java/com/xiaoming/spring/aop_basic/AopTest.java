@@ -18,11 +18,12 @@ public class AopTest {
         calculator.div(8,3);
     }
 
-    @Test
+    @Test(expected = ArithmeticException.class)
     public void testException() {
         // @Begin advice will run
         // @After advice will run even though exception throw
-        // @AfterRunning
+        // @AfterReturning advice won't run because the exception
+        // @AfterThrowing advice will run obviously
         calculator.div(1,0);
     }
 }
