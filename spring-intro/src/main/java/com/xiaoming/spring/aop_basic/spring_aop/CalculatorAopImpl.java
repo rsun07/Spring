@@ -5,23 +5,23 @@ import org.springframework.stereotype.Component;
 
 @Component("aopCalculator")
 public class CalculatorAopImpl implements Calculator {
-    public double add(double a, double b) {
-        double result = a + b;
+    public int add(int a, int b) {
+        int result = a + b;
         return result;
     }
 
-    public double sub(double a, double b) {
-        double result = a - b;
+    public int sub(int a, int b) {
+        int result = a - b;
         return result;
     }
 
-    public double mul(double a, double b) {
-        double result = a * b;
+    public int mul(int a, int b) {
+        int result = a * b;
         return result;
     }
 
-    public double div(double a, double b) {
-        double result = a / b;
+    public int div(int a, int b) {
+        int result = a / b;
         return result;
     }
 }
