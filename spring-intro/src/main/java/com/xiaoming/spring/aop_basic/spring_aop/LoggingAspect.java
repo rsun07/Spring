@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -14,7 +15,13 @@ import java.util.List;
 
 // initialize the class as an Aspect, inject to IOC container
 @Aspect
+// Don't forget this
 @EnableAspectJAutoProxy
+
+// we can use @Order to set the priority of an Aspect
+// the less the number is, the higher the priority is
+@Order(1)
+
 @Component
 public class LoggingAspect {
 
