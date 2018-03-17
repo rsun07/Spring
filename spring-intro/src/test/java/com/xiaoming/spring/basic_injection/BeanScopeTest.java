@@ -1,15 +1,21 @@
 package com.xiaoming.spring.basic_injection;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BeanScopeTest {
+    private ApplicationContext ctx;
+
+    @Before
+    public void setUp() {
+        ctx = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
+    }
+
     @Test
     public void testSingletonBean() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
-
         Engine singletonEngine1 = (Engine) ctx.getBean("singletonEngine");
         Engine singletonEngine2 = (Engine) ctx.getBean("singletonEngine");
 
@@ -19,8 +25,6 @@ public class BeanScopeTest {
 
     @Test
     public void testPrototypeBean() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("basicInjectionContext.xml");
-
         Engine singletonEngine1 = (Engine) ctx.getBean("prototypeEngine");
         Engine singletonEngine2 = (Engine) ctx.getBean("prototypeEngine");
 

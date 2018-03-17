@@ -1,12 +1,19 @@
 package com.xiaoming.spring.aop_basic.annotation_aop;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AopAroundAdviceTest {
-    private final ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-    private final CalculatorAopImpl calculator = (CalculatorAopImpl) ctx.getBean("aopCalculatorImpl");
+    private ApplicationContext ctx;
+    private CalculatorAopImpl calculator;
+
+    @Before
+    public void setUp() {
+        ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        calculator = (CalculatorAopImpl) ctx.getBean("aopCalculatorImpl");
+    }
 
     @Test
     public void testNoException() {

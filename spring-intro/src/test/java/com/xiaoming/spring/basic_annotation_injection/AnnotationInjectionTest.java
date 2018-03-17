@@ -3,13 +3,19 @@ package com.xiaoming.spring.basic_annotation_injection;
 import com.xiaoming.spring.basic_annotation_injection.autowired_bean.MyNotRequiredAutowired;
 import com.xiaoming.spring.basic_annotation_injection.autowired_bean.MyService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AnnotationInjectionTest {
-    private ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
+    private ApplicationContext appContext;
+
+    @Before
+    public void setUp() {
+        appContext = new AnnotationConfigApplicationContext(AppConfig.class);
+    }
 
     @Test
     public void testConstructorAutowired() {
