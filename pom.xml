@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>spring-intro</module>
+    <module>spring-basic</module>
   </modules>
 
   <name>spring</name>
