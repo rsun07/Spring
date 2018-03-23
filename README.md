@@ -1,8 +1,11 @@
-# Java_Spring
+# Java_Framework
 
-Java Spring Learning Notes.
+Notes for basic Java Framework examples
 
-Although I use spring in work. But we use so many annotations that prevent me to understand deeper into Java Spring.
+- Spring basic (completed)
+- Hibernate (In progress)
 
-I am also planning to read books about Java Spring source code. 
-I'll update this repo with my leaning.
+Future:
+- Struts
+- Spring MVC
+- Spring Boot
