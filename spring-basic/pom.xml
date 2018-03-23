@@ -26,8 +26,8 @@
     </dependencies>
 
     <parent>
-    <groupId>pers.xiaoming.spring</groupId>
-    <artifactId>spring</artifactId>
+    <groupId>pers.xiaoming.java_frameworks</groupId>
+    <artifactId>java_frameworks</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
