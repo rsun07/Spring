@@ -7,7 +7,7 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <!--Config by constructor-->
-    <bean id="tank" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Car">
+    <bean id="tank" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Car">
         <constructor-arg name="type" value="Tank"></constructor-arg>
         <constructor-arg index="1" value="59000000"></constructor-arg>
         <constructor-arg>
@@ -15,13 +15,13 @@
         </constructor-arg>
     </bean>
 
-    <bean id="engine-x" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Engine">
+    <bean id="engine-x" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Engine">
         <constructor-arg>
             <value>3000</value>
         </constructor-arg>
     </bean>
 
-    <bean id="myCar" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Car">
+    <bean id="myCar" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Car">
         <constructor-arg name="type" value="Car"></constructor-arg>
         <constructor-arg type="String" >
             <value><![CDATA[<'model-x^>]]]></value>
@@ -35,7 +35,7 @@
     </bean>
 
     <!--Internal Bean, only access by -->
-    <bean id="carInternalEngine" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Car">
+    <bean id="carInternalEngine" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Car">
         <constructor-arg name="type" value="Car"></constructor-arg>
         <constructor-arg type="String" >
             <value>"model-x"</value>
@@ -43,7 +43,7 @@
         <constructor-arg type="double" value="290000"></constructor-arg>
 
         <constructor-arg>
-            <bean id="internalEngine" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Engine">
+            <bean id="internalEngine" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Engine">
                 <constructor-arg value="1800"></constructor-arg>
             </bean>
         </constructor-arg>
@@ -52,13 +52,13 @@
     <!--Injection for Collection-->
         <!--Injection for List-->
 
-        <bean id="Jerry" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Person">
+        <bean id="Jerry" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Person">
                 <property name="name" value="Jerry"></property>
                 <property name="cars">
                     <list>
                         <ref bean="tank"/>
                         <ref bean="carInternalEngine"/>
-                        <bean class="com.xiaoming.java_framwork.spring_basic.basic_injection.Car">
+                        <bean class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Car">
                             <constructor-arg name="type" value="Motor"></constructor-arg>
                             <constructor-arg name="price" value="4800"></constructor-arg>
                             <constructor-arg index="2">
@@ -70,7 +70,7 @@
             </bean>
 
         <!--Injection for Map-->
-        <bean id="Peter" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Person">
+        <bean id="Peter" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Person">
             <property name="name" value="Jerry"></property>
             <property name="carMap">
                 <map>
@@ -81,7 +81,7 @@
         </bean>
 
 
-    <bean id="Jane" class="com.xiaoming.java_framwork.spring_basic.basic_injection.Person">
+    <bean id="Jane" class="pers.xiaoming.java_framwork.spring_basic.basic_injection.Person">
         <property name="name" value="Jane"></property>
         <property name="carMap" ref="CarMap"></property>
     </bean>
@@ -92,13 +92,13 @@
     </util:map>
 
 
-    <bean id = "singletonEngine" class = "com.xiaoming.java_framwork.spring_basic.basic_injection.Engine">
+    <bean id = "singletonEngine" class = "pers.xiaoming.java_framwork.spring_basic.basic_injection.Engine">
         <constructor-arg value="1500"></constructor-arg>
     </bean>
 
 
     <bean id = "prototypeEngine"
-          class = "com.xiaoming.java_framwork.spring_basic.basic_injection.Engine"
+          class = "pers.xiaoming.java_framwork.spring_basic.basic_injection.Engine"
           scope = "prototype">
         <constructor-arg value="1500"></constructor-arg>
     </bean>
