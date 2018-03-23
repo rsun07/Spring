@@ -11,10 +11,20 @@
   </parent>
 
   <name>hibernate</name>
-  <url>http://maven.apache.org</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <hibernate.version>5.1.0.Final</hibernate.version>
   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+  </dependencies>
+
+  <url>http://maven.apache.org</url>
+
 
 </project>
