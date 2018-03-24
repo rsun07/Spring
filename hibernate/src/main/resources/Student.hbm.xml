@@ -15,5 +15,9 @@
         <property name="name" column="name"/>
         <property name="age" column="age"/>
         <property name="score" column="score"/>
+        <!--If field name is the same as property name-->
+        <!--<property name="name"/>-->
+        <!--<property name="age"/>-->
+        <!--<property name="score"/>-->
     </class>
 </hibernate-mapping>
