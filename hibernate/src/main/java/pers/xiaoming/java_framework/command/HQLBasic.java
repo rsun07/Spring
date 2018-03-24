@@ -8,9 +8,9 @@ import java.util.List;
 
 public class HQLBasic {
     // Student here is class name rather than table name
-    // Should use PreparedStatement in production
-    // here is only a demo for how to use Hibernate
-    private final static String GET_A_STUDENT_HQL = "FROM Student WHERE id = %d;";
+    private final static String GET_A_STUDENT_HQL_WILDCARD = "FROM Student WHERE id = ?;";
+
+    private final static String GET_A_STUDENT_HQL_PARAM = "FROM Student WHERE id = :id;";
 
     // limit is not supported in HQL,
     // need to use setMaxResults(maxRows) function
@@ -22,8 +22,10 @@ public class HQLBasic {
         try {
             session.beginTransaction();
 
-            List<Student> list = session.createSQLQuery(String.format(GET_A_STUDENT_HQL, id))
-                    .addEntity(Student.class).list();
+//            List<Student> list = session.createQuery(GET_A_STUDENT_HQL_WILDCARD)
+//                    .setInteger(0, id).list();
+            List<Student> list = session.createQuery(GET_A_STUDENT_HQL_PARAM)
+                    .setInteger("id", id).list();
 
             session.getTransaction().commit();
             return list.get(0);

@@ -1,5 +1,6 @@
 package pers.xiaoming.java_framework.command;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import pers.xiaoming.java_framework.entity.Student;
 
@@ -7,9 +8,7 @@ import java.util.List;
 
 public class SQLBasic {
     // In SQL, use database table attribute names instead of Java Class field names
-    // Should use PreparedStatement in production
-    // here is only a demo for how to use Hibernate
-    private final static String GET_A_STUDENT_SQL = "SELECT t_id, t_name, t_age, t_score FROM t_student WHERE id = %d LIMIT 10;";
+    private final static String GET_A_STUDENT_SQL = "SELECT t_id, t_name, t_age, t_score FROM t_student WHERE id = ? LIMIT 10;";
 
     private final static String GET_TOP_TEN_STUDENT_SQL = "SELECT t_id, t_name, t_age, t_score FROM t_student ORDER BY t_score DESC LIMIT 10;";
 
@@ -18,8 +17,10 @@ public class SQLBasic {
         try {
             session.beginTransaction();
 
-            List<Student> list = session.createSQLQuery(String.format(GET_A_STUDENT_SQL, id))
-                    .addEntity(Student.class).list();
+            SQLQuery query = session.createSQLQuery(GET_A_STUDENT_SQL);
+            query.setInteger(0, id);
+            query.addEntity(Student.class);
+            List<Student> list = query.list();
 
             session.getTransaction().commit();
             return list.get(0);
