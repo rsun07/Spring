@@ -5,6 +5,16 @@ import pers.xiaoming.java_framework.entity.Student;
 
 public class CURDStudentBasic {
 
+    /*
+     * save() running process:
+     * 1. ping DB, generate an id
+     * 2. receive the id, then using this id to initialize the instance
+     * (assign the id to student object)
+     * 3. now, student has an id even though the session hasn't been committed
+     * that's to say, the student object is put into the Hibernate Session cache.
+     *
+     *
+     */
     public int create(Session session, Student student) {
         try {
             session.beginTransaction();
