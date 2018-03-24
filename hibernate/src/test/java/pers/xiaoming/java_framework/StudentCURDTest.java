@@ -4,8 +4,9 @@ import org.hibernate.Session;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pers.xiaoming.java_framework.db.CURDStudent;
+import pers.xiaoming.java_framework.command.CURDStudent;
 import pers.xiaoming.java_framework.entity.Student;
+import pers.xiaoming.java_framework.session_factory.Server;
 
 public class StudentCURDTest {
     private static CURDStudent dbOperator;
@@ -31,18 +32,23 @@ public class StudentCURDTest {
         Assert.assertNull(studentGetFromDb);
     }
 
-    private int create(Student student) {
-        Session session = Server.getSession();
+    private int create(Session session, Student student) {
         return dbOperator.create(session, student);
     }
 
-    private Student get(int id) {
-        Session session = Server.getSession();
+    private Student get(Session session, int id) {
         return dbOperator.get(session, id);
     }
 
-    private void delete(int id) {
-        Session session = Server.getSession();
+    private void delete(Session session, int id) {
         dbOperator.delete(session, id);
+    }
+
+    private Session getSession() {
+        return Server.getSession();
+    }
+
+    private Session getMySession() {
+        return Server.getSession();
     }
 }

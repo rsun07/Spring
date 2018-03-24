@@ -1,4 +1,4 @@
-package pers.xiaoming.java_framework;
+package pers.xiaoming.java_framework.session_factory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
