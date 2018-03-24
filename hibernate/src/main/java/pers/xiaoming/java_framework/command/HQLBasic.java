@@ -39,8 +39,8 @@ public class HQLBasic {
         try {
             session.beginTransaction();
 
-            List<Student> list = session.createSQLQuery(GET_ALL_STUDENT_HQL)
-                    .addEntity(Student.class).list();
+            // no need for addEntity()
+            List<Student> list = session.createSQLQuery(GET_ALL_STUDENT_HQL).setMaxResults(10).list();
 
             session.getTransaction().commit();
             return list.get(0);
