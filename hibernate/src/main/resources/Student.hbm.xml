@@ -9,12 +9,12 @@
         2. Fields to Attributes mapping
     -->
     <class name="Student" table="t_student">
-        <id name = "id" column="id">
+        <id name = "id" column="t_id">
             <generator class="native"/>
         </id>
-        <property name="name" column="name"/>
-        <property name="age" column="age"/>
-        <property name="score" column="score"/>
+        <property name="name" column="t_name"/>
+        <property name="age" column="t_age"/>
+        <property name="score" column="t_score"/>
         <!--If field name is the same as property name-->
         <!--<property name="name"/>-->
         <!--<property name="age"/>-->

@@ -7,9 +7,10 @@ import pers.xiaoming.java_framework.entity.Student;
 import pers.xiaoming.java_framework.session_factory.Server;
 
 public class HibernateLifeCycleTest {
+
     @Test
     @SuppressWarnings("UnnecessaryLocalVariable")
-    public void testSave() {
+    public void testTransientToPersistent() {
         CURDStudentBasic dbOperator = new CURDStudentBasic();
 
         Student student = Student.builder().name("Mike").age(26).score(78.0).build();
