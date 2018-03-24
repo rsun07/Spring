@@ -21,7 +21,7 @@ public class CURDStudent {
     public void delete(Session session, int id) {
         try {
             session.beginTransaction();
-            session.delete(id);
+            session.delete(Student.builder().id(id).build());
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

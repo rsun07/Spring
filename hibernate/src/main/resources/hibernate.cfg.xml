@@ -8,13 +8,18 @@
         <!--For key parts for db connection-->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/hibernate</property>
-        <property name="hibernate.connection.user_name">root</property>
+        <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
+
+        <property name="hibernate.connection.requireSSL">false</property>
+        <property name="hibernate.connection.useSSL">false</property>
 
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>
 
         <!--Data source, connection pool-->
         <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+
+        <property name="c3p0.timeout">10</property>
 
         <!--Register current session context-->
         <!--To make sure in one single thread, always get the same session-->

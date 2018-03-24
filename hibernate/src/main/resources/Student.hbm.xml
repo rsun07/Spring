@@ -3,7 +3,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="pers.xiaoming.java_framework.entity.Student">
+<hibernate-mapping package="pers.xiaoming.java_framework.entity">
     <!--The functionality of mapping class
         1. Class to Table mapping
         2. Fields to Attributes mapping
