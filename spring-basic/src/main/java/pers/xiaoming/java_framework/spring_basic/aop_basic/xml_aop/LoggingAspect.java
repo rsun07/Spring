@@ -15,7 +15,7 @@ public class LoggingAspect {
             could also be "execution(* CalculatorAopImpl.*(int, int))"
             means any access modifier and return type
 
-            "execution(* pers.xiaoming.java_framwork.spring_basic.aop_basic.annotation_aop.*.*(int, int))"
+            "execution(* pers.xiaoming.java_framework.spring_basic.aop_basic.annotation_aop.*.*(int, int))"
             means all the Classes in this package and all the methods of those classes whose parameters are two ints
         */
     public void beforeAdvice(JoinPoint joinPoint) {

@@ -1,9 +1,9 @@
 package pers.xiaoming.java_framework.spring_basic.aop_basic.annotation_aop;
 
 import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.Calculator;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
 import org.springframework.stereotype.Component;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.Calculator;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
 
 @Component("aopCalculator")
 public class CalculatorAopImpl implements Calculator {

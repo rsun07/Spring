@@ -1,7 +1,7 @@
 package pers.xiaoming.java_framework.spring_basic.aop_basic;
 
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.Calculator;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.CalculatorLoggingImpl;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.CalculatorLoggingImpl;
 import org.junit.Test;
 
 public class TraditionalImplTest {

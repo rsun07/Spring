@@ -6,16 +6,16 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!--Config by setter method-->
-    <bean id="helloWorld1" class="pers.xiaoming.java_framwork.spring_basic.hello_world.HelloWorld">
+    <bean id="helloWorld1" class="pers.xiaoming.java_framework.spring_basic.hello_world.HelloWorld">
         <property name="message" value="Spring Hello World!"/>
     </bean>
 
-    <bean id="helloWorld2" class="pers.xiaoming.java_framwork.spring_basic.hello_world.HelloWorld">
+    <bean id="helloWorld2" class="pers.xiaoming.java_framework.spring_basic.hello_world.HelloWorld">
         <property name="message" value="Spring Hello World 2 !"/>
     </bean>
 
     <!--Null value-->
-    <bean id="helloWorldNull" class="pers.xiaoming.java_framwork.spring_basic.hello_world.HelloWorld">
+    <bean id="helloWorldNull" class="pers.xiaoming.java_framework.spring_basic.hello_world.HelloWorld">
         <property name="message">
             <null/>
         </property>

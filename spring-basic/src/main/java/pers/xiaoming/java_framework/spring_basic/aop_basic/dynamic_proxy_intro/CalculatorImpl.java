@@ -1,8 +1,8 @@
 package pers.xiaoming.java_framework.spring_basic.aop_basic.dynamic_proxy_intro;
 
 import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.Calculator;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.Calculator;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
 
 public class CalculatorImpl implements Calculator {
     public int add(int a, int b) {

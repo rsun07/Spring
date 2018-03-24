@@ -1,8 +1,8 @@
 package pers.xiaoming.java_framework.spring_basic.aop_basic;
 
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.dynamic_proxy_intro.CalculatorImpl;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.dynamic_proxy_intro.CalculatorLoggingProxy;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.Calculator;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.dynamic_proxy_intro.CalculatorImpl;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.dynamic_proxy_intro.CalculatorLoggingProxy;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
 import org.junit.Test;
 
 public class DynamicProxyTest {

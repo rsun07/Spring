@@ -2,17 +2,17 @@ package pers.xiaoming.java_framework.spring_basic.basic_annotation_injection;
 
 import pers.xiaoming.java_framework.spring_basic.basic_annotation_injection.autowired_bean.MyNotRequiredAutowired;
 import pers.xiaoming.java_framework.spring_basic.basic_annotation_injection.autowired_bean.MyService;
-import pers.xiaoming.java_framwork.spring_basic.basic_annotation_injection.AppConfig;
-import pers.xiaoming.java_framwork.spring_basic.basic_annotation_injection.autowired_bean.MyNotRequiredAutowired;
-import pers.xiaoming.java_framwork.spring_basic.basic_annotation_injection.autowired_bean.MyService;
+import pers.xiaoming.java_framework.spring_basic.basic_annotation_injection.AppConfig;
+import pers.xiaoming.java_framework.spring_basic.basic_annotation_injection.autowired_bean.MyNotRequiredAutowired;
+import pers.xiaoming.java_framework.spring_basic.basic_annotation_injection.autowired_bean.MyService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pers.xiaoming.java_framwork.spring_basic.basic_annotation_injection.autowired_bean.MyNotRequiredAutowired;
-import pers.xiaoming.java_framwork.spring_basic.basic_annotation_injection.autowired_bean.MyService;
+import pers.xiaoming.java_framework.spring_basic.basic_annotation_injection.autowired_bean.MyNotRequiredAutowired;
+import pers.xiaoming.java_framework.spring_basic.basic_annotation_injection.autowired_bean.MyService;
 
 public class AnnotationInjectionTest {
     private ApplicationContext appContext;
@@ -30,7 +30,7 @@ public class AnnotationInjectionTest {
 
     @Test
     public void testParameterAutowired() {
-        // use java_framwork default bean name
+        // use java_framework default bean name
         MyService myService = (MyService) appContext.getBean("myParameterAutowired");
         Assert.assertEquals("My Repository", myService.showRepo());
     }

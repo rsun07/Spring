@@ -1,7 +1,5 @@
 package pers.xiaoming.java_framework.spring_basic.aop_basic.annotation_aop;
 
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.annotation_aop.AppConfig;
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.annotation_aop.CalculatorAopImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

@@ -1,7 +1,7 @@
 package pers.xiaoming.java_framework.spring_basic.basic_injection;
 
-import pers.xiaoming.java_framwork.spring_basic.basic_injection.Car;
-import pers.xiaoming.java_framwork.spring_basic.basic_injection.Engine;
+import pers.xiaoming.java_framework.spring_basic.basic_injection.Car;
+import pers.xiaoming.java_framework.spring_basic.basic_injection.Engine;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;

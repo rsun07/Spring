@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
 @Configuration
-@ComponentScan("pers.xiaoming.java_framwork.spring_basic.aop_basic.annotation_aop")
+@ComponentScan("pers.xiaoming.java_framework.spring_basic.aop_basic.annotation_aop")
 public class AppConfig {
 
     // If you use the bean here, the target class must have a constructor!!!
     @Bean(name = "aopCalculatorImpl")
     // set scope the target class,
-    // otherwise java_framwork will use <JDK dynamic proxies> by default which only proxy Interface
+    // otherwise java_framework will use <JDK dynamic proxies> by default which only proxy Interface
     // In this case, the bean cannot be cast to Target class, only cast to the interface it implements
     // equals to the xml " <aop:config proxy-target-class="true"/>"
     @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)

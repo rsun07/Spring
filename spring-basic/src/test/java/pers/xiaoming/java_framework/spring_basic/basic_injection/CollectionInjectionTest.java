@@ -1,6 +1,6 @@
 package pers.xiaoming.java_framework.spring_basic.basic_injection;
 
-import pers.xiaoming.java_framwork.spring_basic.basic_injection.Person;
+import pers.xiaoming.java_framework.spring_basic.basic_injection.Person;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

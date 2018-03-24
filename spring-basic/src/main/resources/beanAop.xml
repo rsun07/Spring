@@ -6,18 +6,18 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <bean id = "aopCalculator"
-          class = "pers.xiaoming.java_framwork.spring_basic.aop_basic.xml_aop.CalculatorAopImpl">
+          class = "pers.xiaoming.java_framework.spring_basic.aop_basic.xml_aop.CalculatorAopImpl">
     </bean>
 
     <bean id = "loggingAspect"
-          class = "pers.xiaoming.java_framwork.spring_basic.aop_basic.xml_aop.LoggingAspect"/>
+          class = "pers.xiaoming.java_framework.spring_basic.aop_basic.xml_aop.LoggingAspect"/>
 
     <bean id = "aroundAdvice"
-          class="pers.xiaoming.java_framwork.spring_basic.aop_basic.xml_aop.AroundAdvice"/>
+          class="pers.xiaoming.java_framework.spring_basic.aop_basic.xml_aop.AroundAdvice"/>
 
     <!--AOP config-->
     <aop:config>
-       <aop:pointcut expression="execution(public int pers.xiaoming.java_framwork.spring_basic.aop_basic.xml_aop.CalculatorAopImpl.*(..))"
+       <aop:pointcut expression="execution(public int pers.xiaoming.java_framework.spring_basic.aop_basic.xml_aop.CalculatorAopImpl.*(..))"
                      id = "declareJointPointExpress"/>
         <aop:aspect ref="loggingAspect" order="1">
             <aop:before method="beforeAdvice" pointcut-ref="declareJointPointExpress"/>
@@ -34,7 +34,7 @@
 
         <aop:aspect ref="aroundAdvice" order="1">
             <aop:around method="aroundAdvice"
-                        pointcut="execution(public double pers.xiaoming.java_framwork.spring_basic.aop_basic.xml_aop.CalculatorAopImpl.divide(int, int))"/>
+                        pointcut="execution(public double pers.xiaoming.java_framework.spring_basic.aop_basic.xml_aop.CalculatorAopImpl.divide(int, int))"/>
         </aop:aspect>
     </aop:config>
 

@@ -1,6 +1,6 @@
 package pers.xiaoming.java_framework.spring_basic.hello_world;
 
-import pers.xiaoming.java_framwork.spring_basic.hello_world.HelloWorld;
+import pers.xiaoming.java_framework.spring_basic.hello_world.HelloWorld;
 import org.junit.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.context.ApplicationContext;

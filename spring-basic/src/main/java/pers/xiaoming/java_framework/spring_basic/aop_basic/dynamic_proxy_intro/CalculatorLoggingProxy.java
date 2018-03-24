@@ -1,6 +1,6 @@
 package pers.xiaoming.java_framework.spring_basic.aop_basic.dynamic_proxy_intro;
 
-import pers.xiaoming.java_framwork.spring_basic.aop_basic.traditional_impl.Calculator;
+import pers.xiaoming.java_framework.spring_basic.aop_basic.traditional_impl.Calculator;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
