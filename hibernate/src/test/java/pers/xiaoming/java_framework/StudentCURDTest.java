@@ -20,15 +20,15 @@ public class StudentCURDTest {
     public void testCreateAndDelete() {
         Student student = Student.builder().name("John").age(20).score(88.5).build();
 
-        int id = create(student);
+        int id = create(getMySession(), student);
         student.setId(id);
 
-        Student studentGetFromDb = get(id);
+        Student studentGetFromDb = get(getSession(),id);
         Assert.assertEquals(student, studentGetFromDb);
 
-        delete(id);
+        delete(getSession(),id);
 
-        studentGetFromDb = get(id);
+        studentGetFromDb = get(getSession(),id);
         Assert.assertNull(studentGetFromDb);
     }
 
