@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import pers.xiaoming.java_framework.entity.Student;
 
 public class CURDStudentOtherMethods {
-    public void persist(Session session, Student student) {
+    public int persist(Session session, Student student) {
         try {
             session.beginTransaction();
             // same as
@@ -14,14 +14,12 @@ public class CURDStudentOtherMethods {
             session.persist(student);
 
             session.getTransaction().commit();
+
+            return student.getId();
         } catch (Exception e) {
             session.getTransaction().rollback();
             throw e;
         }
-    }
-
-    public void save() {
-
     }
 
     public void saveOrUpdate(Session session, Student student) {
