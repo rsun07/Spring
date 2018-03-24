@@ -4,16 +4,16 @@ import org.hibernate.Session;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pers.xiaoming.java_framework.command.CURDStudent;
+import pers.xiaoming.java_framework.command.CURDStudentBasic;
 import pers.xiaoming.java_framework.entity.Student;
 import pers.xiaoming.java_framework.session_factory.Server;
 
 public class StudentCURDTest {
-    private static CURDStudent dbOperator;
+    private static CURDStudentBasic dbOperator;
 
     @BeforeClass
     public static void init() {
-        dbOperator = new CURDStudent();
+        dbOperator = new CURDStudentBasic();
     }
 
     @Test

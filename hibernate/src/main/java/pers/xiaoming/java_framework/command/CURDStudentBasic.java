@@ -3,7 +3,7 @@ package pers.xiaoming.java_framework.command;
 import org.hibernate.Session;
 import pers.xiaoming.java_framework.entity.Student;
 
-public class CURDStudent {
+public class CURDStudentBasic {
 
     public int create(Session session, Student student) {
         try {
