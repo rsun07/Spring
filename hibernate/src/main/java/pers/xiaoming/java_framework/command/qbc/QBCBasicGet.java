@@ -1,4 +1,4 @@
-package pers.xiaoming.java_framework.command;
+package pers.xiaoming.java_framework.command.qbc;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -8,7 +8,7 @@ import pers.xiaoming.java_framework.entity.Student;
 
 import java.util.List;
 
-public class QBCBasic {
+public class QBCBasicGet {
 
     @SuppressWarnings("unchecked")
     public Student getStudent(Session session, int id) {

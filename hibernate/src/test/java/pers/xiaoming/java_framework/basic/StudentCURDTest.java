@@ -1,16 +1,15 @@
-package pers.xiaoming.java_framework;
+package pers.xiaoming.java_framework.basic;
 
 import org.hibernate.Session;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
-import pers.xiaoming.java_framework.command.CURDStudentBasic;
+import pers.xiaoming.java_framework.command.basic.CURDStudentBasic;
 import pers.xiaoming.java_framework.entity.Student;
 import pers.xiaoming.java_framework.session_factory.Server;
 
-@Ignore("Demo for Hibernate integration test with DB dependency, " +
-        "only run it manually for demo")
+//@Ignore("Demo for Hibernate integration test with DB dependency, " +
+//        "run it in my macbook or when manually demo")
 public class StudentCURDTest {
     private static CURDStudentBasic dbOperator;
 

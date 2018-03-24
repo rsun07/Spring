@@ -1,4 +1,4 @@
-package pers.xiaoming.java_framework.command;
+package pers.xiaoming.java_framework.command.basic;
 
 import org.hibernate.Session;
 import pers.xiaoming.java_framework.entity.Student;

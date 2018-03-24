@@ -1,4 +1,4 @@
-package pers.xiaoming.java_framework.command;
+package pers.xiaoming.java_framework.command.sql;
 
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -6,7 +6,7 @@ import pers.xiaoming.java_framework.entity.Student;
 
 import java.util.List;
 
-public class SQLBasic {
+public class SQLBasicGet {
     // In SQL, use database table attribute names instead of Java Class field names
     private final static String GET_A_STUDENT_SQL = "SELECT t_id, t_name, t_age, t_score FROM t_student WHERE id = ? LIMIT 10;";
 

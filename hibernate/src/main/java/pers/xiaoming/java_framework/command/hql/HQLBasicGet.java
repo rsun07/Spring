@@ -1,4 +1,4 @@
-package pers.xiaoming.java_framework.command;
+package pers.xiaoming.java_framework.command.hql;
 
 import org.hibernate.Session;
 import pers.xiaoming.java_framework.entity.Student;
@@ -6,7 +6,7 @@ import pers.xiaoming.java_framework.entity.Student;
 import java.sql.PreparedStatement;
 import java.util.List;
 
-public class HQLBasic {
+public class HQLBasicGet {
     // Student here is class name rather than table name
     private final static String GET_A_STUDENT_HQL_WILDCARD = "FROM Student WHERE id = ?;";
 
