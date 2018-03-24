@@ -1,4 +1,4 @@
-package pers.xiaoming.java_framework.entity;
+package pers.xiaoming.java_framework;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,7 +30,7 @@ public class Server implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         sessionFactory.close();
     }
 }
