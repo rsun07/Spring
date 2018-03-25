@@ -9,7 +9,6 @@
 
   <modules>
     <module>spring-basic</module>
-    <module>hibernate</module>
   </modules>
 
   <name>spring</name>
