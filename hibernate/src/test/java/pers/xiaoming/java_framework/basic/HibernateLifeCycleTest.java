@@ -1,13 +1,12 @@
 package pers.xiaoming.java_framework.basic;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import pers.xiaoming.java_framework.command.basic.CURDStudentBasic;
 import pers.xiaoming.java_framework.entity.Student;
 import pers.xiaoming.java_framework.session_factory.Server;
 
-//@Ignore("Demo for Hibernate integration test with DB dependency, " +
-//        "run it in my macbook or when manually demo")
+
 public class HibernateLifeCycleTest {
 
     @Test
