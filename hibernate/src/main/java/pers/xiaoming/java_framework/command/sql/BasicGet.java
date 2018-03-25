@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BasicGet implements GetStudent {
     // In SQL, use database table attribute names instead of Java Class field names
-    private final static String GET_SQL = "SELECT t_id, t_name, t_age, t_score FROM t_student WHERE id = ? LIMIT 10;";
+    private final static String GET_SQL = "SELECT t_id, t_name, t_age, t_score FROM t_student WHERE t_id = ? LIMIT 10;";
 
     @SuppressWarnings("unchecked")
     public Student get(Session session, int id) {

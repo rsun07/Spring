@@ -18,4 +18,10 @@
             <class name="pers.xiaoming.java_framework.basic.HibernateLifeCycleTest"/>
         </classes>
     </test>
+
+    <test name="Select Tests for SQL, HQL, QBC">
+        <packages>
+            <package name="pers.xiaoming.java_framework.query"/>
+        </packages>
+    </test>
 </suite>
