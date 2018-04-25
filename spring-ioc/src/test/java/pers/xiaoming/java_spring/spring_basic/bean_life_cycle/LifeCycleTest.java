@@ -1,7 +1,11 @@
 package pers.xiaoming.java_spring.spring_basic.bean_life_cycle;
 
 import org.junit.Test;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
 
 public class LifeCycleTest {
     /*
@@ -14,8 +18,14 @@ public class LifeCycleTest {
         Setting name to <Post Process Reset Name>
      */
     @Test
-    public void testOnlyInitContainer() {
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beanLifeCycle.xml");
+    public void testInitContainerUseApplicationContext() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("beanLifeCycle.xml");
+    }
+
+    // Won't create any Bean
+    @Test
+    public void testInitContainerUserBeanFactory() {
+        BeanFactory factory = new XmlBeanFactory(new ClassPathResource("beanLifeCycle.xml"));
     }
 
     /*

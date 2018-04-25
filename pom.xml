@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>spring-basic</module>
+    <module>spring-ioc</module>
   </modules>
 
   <name>java_spring</name>
