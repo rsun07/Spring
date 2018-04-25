@@ -6,7 +6,7 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!--Config by setter method-->
-    <bean id="myBean" class="pers.xiaoming.java_spring.spring_ioc.bean_life_cycle.MyBean"
+    <bean id="myBean" class="pers.xiaoming.java_spring.spring_ioc.bean_life_cycle.LifecycleBean"
         init-method="initMethod"
         destroy-method="destroyMethod">
         <property name="name" value="My Bean!"/>

@@ -3,6 +3,7 @@ package pers.xiaoming.java_spring.spring_ioc.factory;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.spring_ioc.entity.MyBean;
 
 public class BeanFactoryTest {
     private final ApplicationContext ac = new ClassPathXmlApplicationContext("beanFactoryContext.xml");

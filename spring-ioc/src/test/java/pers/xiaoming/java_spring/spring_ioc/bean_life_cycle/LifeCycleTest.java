@@ -38,7 +38,7 @@ public class LifeCycleTest {
         Setting name to <Post Process Reset Name>
         Apr 24, 2018 8:35:51 PM org.springframework.context.support.ClassPathXmlApplicationContext doClose
         INFO: Closing org.springframework.context.support.ClassPathXmlApplicationContext@5cbc508c: startup date [Tue Apr 24 20:35:51 PDT 2018]; root of context hierarchy
-        MyBean{name='Post Process Reset Name'}
+        LifecycleBean{name='Post Process Reset Name'}
 
         Destroying...
      */

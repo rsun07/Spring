@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring.spring_ioc.factory;
+package pers.xiaoming.java_spring.spring_ioc.entity;
 
 public class MyBean {
     private String name;

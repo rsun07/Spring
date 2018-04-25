@@ -1,19 +1,19 @@
 package pers.xiaoming.java_spring.spring_ioc.bean_life_cycle;
 
 
-public class MyBean {
+public class LifecycleBean {
     private String name;
 
     {
         System.out.println("Running Dynamic code block, my bean name is : " + this.name);
     }
 
-    MyBean() {
+    LifecycleBean() {
         this.name = "Default_name";
         System.out.println("Constructing...");
     }
 
-    MyBean(String name) {
+    LifecycleBean(String name) {
         this.name = name;
         System.out.println("Constructing...");
     }
@@ -35,7 +35,7 @@ public class MyBean {
 
     @Override
     public String toString() {
-        return "MyBean{" +
+        return "LifecycleBean{" +
                 "name='" + name + '\'' +
                 '}' + "\n";
     }

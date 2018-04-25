@@ -12,9 +12,9 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     }
 
     public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
-        if (o instanceof MyBean) {
+        if (o instanceof LifecycleBean) {
             System.out.println("My Bean post process after init method");
-            ((MyBean) o).setName("Post Process Reset Name");
+            ((LifecycleBean) o).setName("Post Process Reset Name");
         }
         return o;
     }
