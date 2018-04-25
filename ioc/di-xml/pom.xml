@@ -4,18 +4,11 @@
 
     <parent>
         <groupId>pers.xiaoming.java_spring</groupId>
-        <artifactId>java_spring</artifactId>
+        <artifactId>ioc</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ioc</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>ioc-basic</module>
-        <module>di-xml</module>
-        <module>di-annotation</module>
-    </modules>
+    <artifactId>di-xml</artifactId>
 
     <properties>
         <spring.version>4.2.5.RELEASE</spring.version>
