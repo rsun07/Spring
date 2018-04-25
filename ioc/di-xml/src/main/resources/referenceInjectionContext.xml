@@ -13,16 +13,16 @@
     </bean>
 
     <bean id="mySchool" class="pers.xiaoming.java_spring.School">
-        <property name="name" value="MySchool"/>
+        <constructor-arg name="name" value="MySchool"/>
         <property name="address">
             <ref bean="schoolAddress"/>
         </property>
     </bean>
 
     <bean id="schoolAddress" class="pers.xiaoming.java_spring.Address">
-        <property name="num" value="3690"/>
-        <property name="street" value="CA Road"/>
-        <property name="zipcode" value="10000"/>
+        <constructor-arg name="num" value="8888"/>
+        <constructor-arg name="street" value="CA DR"/>
+        <constructor-arg name="zipcode" value="12345"/>
     </bean>
 
 </beans>
