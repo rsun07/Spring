@@ -1,13 +1,14 @@
-package pers.xiaoming.java_spring.di.entity;
+package pers.xiaoming.java_spring;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // because testing setter injection
 // no need for AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class School {
+@NoArgsConstructor
+public class Student {
     private String name;
-    private Address address;
+    private int age;
+    private School school;
 }

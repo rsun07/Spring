@@ -1,11 +1,11 @@
-package pers.xiaoming.java_spring.di;
+package pers.xiaoming.java_spring;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import pers.xiaoming.java_spring.di.repository.MyRepository;
-import pers.xiaoming.java_spring.di.repository.MyRepositoryImpl;
+import pers.xiaoming.java_spring.repository.MyRepository;
+import pers.xiaoming.java_spring.repository.MyRepositoryImpl;
 
 @Configuration
 @ComponentScan({"pers.xiaoming.java_spring.di.basic_annotation_injection.autowired_bean",

@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring.di.repository;
+package pers.xiaoming.java_spring.repository;
 
 import org.springframework.stereotype.Component;
 
