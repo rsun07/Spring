@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!-- be careful, if the aggregated xml file also has the name pattern as the wild card-->
-    <!--it will cause recursive import-->
-    <import resource="spring-*.xml"/>
+    <bean id="myEntityA" class="pers.xiaoming.java_spring.MyEntity">
+        <constructor-arg name="name" value="myEntityA"/>
+    </bean>
 </beans>
