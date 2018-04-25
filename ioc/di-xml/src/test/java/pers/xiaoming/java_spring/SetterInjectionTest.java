@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.di_xml_entity.Student;
 
 public class SetterInjectionTest {
     @Test

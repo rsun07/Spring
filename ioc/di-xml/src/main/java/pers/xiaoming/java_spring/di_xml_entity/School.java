@@ -1,6 +1,5 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.di_xml_entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 // because testing setter injection

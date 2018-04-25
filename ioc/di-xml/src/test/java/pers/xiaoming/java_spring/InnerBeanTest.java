@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.di_xml_entity.Address;
+import pers.xiaoming.java_spring.di_xml_entity.School;
 
 public class InnerBeanTest {
     private ApplicationContext ac = new ClassPathXmlApplicationContext("innerBeanContext.xml");

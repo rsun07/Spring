@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.di_xml_entity.Address;
+import pers.xiaoming.java_spring.di_xml_entity.School;
+import pers.xiaoming.java_spring.di_xml_entity.Student;
 
 public class ReferenceInjectionTest {
     @Test

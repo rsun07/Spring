@@ -4,10 +4,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="mySchool" class="pers.xiaoming.java_spring.School">
+    <bean id="mySchool" class="pers.xiaoming.java_spring.di_xml_entity.School">
         <constructor-arg name="name" value="MySchool"/>
         <property name="address">
-            <bean id="schoolAddress" class="pers.xiaoming.java_spring.Address">
+            <bean id="schoolAddress" class="pers.xiaoming.java_spring.di_xml_entity.Address">
                 <constructor-arg name="num" value="8888"/>
                 <constructor-arg name="street" value="CA DR"/>
                 <constructor-arg name="zipcode" value="12345"/>
