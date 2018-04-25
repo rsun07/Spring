@@ -37,7 +37,7 @@ public class SpringHelloWorldTest {
 
     @Test(expected = NoUniqueBeanDefinitionException.class)
     public void test() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("duplicateBeanApplicationContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("duplicateBeanContext.xml");
 
         HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
     }
