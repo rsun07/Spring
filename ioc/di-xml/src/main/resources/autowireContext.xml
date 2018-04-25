@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="student" class="pers.xiaoming.java_spring.Student" autowire="byName">
+        <property name="name" value="John"/>
+        <property name="age" value="23"/>
+    </bean>
+
+    <!--id name must be same as java class attribute name when use autowire by name-->
+    <bean id="school" class="pers.xiaoming.java_spring.School" autowire="byType">
+        <constructor-arg name="name" value="MySchool"/>
+    </bean>
+
+    <!--id name could be different from java class attribute name because use autowire by type-->
+    <bean id="schoolAddress" class="pers.xiaoming.java_spring.Address">
+        <constructor-arg name="num" value="8888"/>
+        <constructor-arg name="street" value="CA DR"/>
+        <constructor-arg name="zipcode" value="12345"/>
+    </bean>
+
+</beans>
