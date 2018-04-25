@@ -5,15 +5,13 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SetterInjectionTest {
+public class ConstructorInjectionTest {
     @Test
     public void test() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("setterInjectionContext.xml");
-        Student actual = (Student) ac.getBean("student");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("constructorInjectionContext.xml");
+        Address actual = (Address) ac.getBean("address");
 
-        Student expect = new Student();
-        expect.setName("John");
-        expect.setAge(23);
+        Address expect = new Address(8888, "CA DR", 12345);
 
         Assert.assertEquals(actual, expect);
     }

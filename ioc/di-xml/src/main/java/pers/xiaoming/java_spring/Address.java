@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// because testing setter injection
-// no need for AllArgsConstructor
+// because testing constructor injection
+// no need for NoArgsConstructor
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Address {
     private int num;
