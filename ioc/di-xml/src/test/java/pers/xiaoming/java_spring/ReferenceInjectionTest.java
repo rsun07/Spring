@@ -4,10 +4,10 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SetterInjectionTest {
+public class ReferenceInjectionTest {
     @Test
     public void test() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("setterInjectionContext.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("referenceInjectionContext.xml");
         Student student = (Student) ac.getBean("student");
         System.out.println(student);
     }
