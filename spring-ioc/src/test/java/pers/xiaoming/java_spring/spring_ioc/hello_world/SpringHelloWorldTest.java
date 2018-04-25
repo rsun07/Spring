@@ -12,9 +12,15 @@ import org.springframework.core.io.ClassPathResource;
 public class SpringHelloWorldTest {
 
     @Test
-    public void testClassPathXmlApplicationContext() {
+    public void testClassPathXmlApplicationContextGetByClass() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("helloWorldContext.xml");
         HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
+    }
+
+    @Test
+    public void testClassPathXmlApplicationContextGetById() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("helloWorldContext.xml");
+        HelloWorld helloWorld = (HelloWorld) ctx.getBean("helloWorld");
     }
 
     @Test
