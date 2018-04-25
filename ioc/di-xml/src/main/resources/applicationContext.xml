@@ -6,5 +6,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
+    <bean id="student" class="pers.xiaoming.java_spring.di.entity.Student">
+        <property name="name" value="John"/>
+        <property name="age" value="23"/>
+        <property name="school" ref="mySchool"/>
+    </bean>
+
+    <bean id="mySchool" class="pers.xiaoming.java_spring.di.entity.School">
+        <property name="name" value="MySchool"/>
+        <property name="address">
+            <ref bean="schoolAddress"/>
+        </property>
+    </bean>
+
+    <bean id="schoolAddress" class="pers.xiaoming.java_spring.di.entity.Address">
+        <property name="num" value="3690"/>
+        <property name="street" value="CA Road"/>
+        <property name="zipcode" value="10000"/>
+    </bean>
 
 </beans>
