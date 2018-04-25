@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class InnerBeanTest {
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("innerBeanInjectionContext.xml");
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("innerBeanContext.xml");
 
     @Test
     public void testGetOuterBean() {

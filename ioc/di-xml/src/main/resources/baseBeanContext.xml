@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--parent specify the class path, so children don't need to-->
+    <bean id="studentBase" abstract="true" class="pers.xiaoming.java_spring.Student">
+        <property name="school">
+            <bean id="mySchool" class="pers.xiaoming.java_spring.School">
+                <constructor-arg name="name" value="MySchool"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="John" parent="studentBase">
+        <property name="name" value="John"/>
+        <property name="age" value="23"/>
+    </bean>
+
+    <bean id="Mike" parent="studentBase">
+        <property name="name" value="Mike"/>
+        <property name="age" value="21"/>
+    </bean>
+
+    <!--without specify the class to be a student-->
+    <bean id="objectBase" abstract="true">
+        <property name="school">
+            <bean id="objectSchool" class="pers.xiaoming.java_spring.School">
+                <constructor-arg name="name" value="ObjectSchool"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!--Because the parent doesn't specify the class, so child need to specify the class path-->
+    <bean id="Marry" class="pers.xiaoming.java_spring.Student" parent="objectBase">
+        <property name="name" value="Marry"/>
+        <property name="age" value="22"/>
+    </bean>
+
+    <bean id="Jane" class="pers.xiaoming.java_spring.Student" parent="objectBase">
+        <property name="name" value="Jane"/>
+        <property name="age" value="20"/>
+    </bean>
+
+</beans>
