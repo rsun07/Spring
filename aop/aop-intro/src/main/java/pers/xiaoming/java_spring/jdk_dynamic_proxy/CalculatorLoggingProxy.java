@@ -25,10 +25,10 @@ public class CalculatorLoggingProxy {
 
         /**
          *
-         * @proxy the currently proxy instance, in normal cases, it should not be used within the invoke method
+         * @param proxy the currently proxy instance, in normal cases, it should not be used within the invoke method
          * otherwise it may cause recursive invoke.
-         * @method the current method invoked from the target proxy instance
-         * @args the parameters passed when invoking the method
+         * @param method the current method invoked from the target proxy instance
+         * @param args the parameters passed when invoking the method
          *
          */
         InvocationHandler invocationHandler = new InvocationHandler() {
