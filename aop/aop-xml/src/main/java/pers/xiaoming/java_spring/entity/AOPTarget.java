@@ -5,5 +5,7 @@ public interface AOPTarget {
 
     String toUppercase(String str);
 
+    String toLowercase(String str);
+
     void throwMyException() throws MyException;
 }

@@ -11,6 +11,11 @@ public class AOPTargetImpl implements AOPTarget {
         return str.trim().toUpperCase();
     }
 
+    public String toLowercase(String str) {
+        System.out.println("Executing AOP target class toLowercase()");
+        return str.trim().toLowerCase();
+    }
+
     @Override
     public void throwMyException() throws MyException {
         System.out.println("Executing AOP target class throwMyException()");

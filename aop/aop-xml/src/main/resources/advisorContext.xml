@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--target object bean-->
+    <bean id="target" class="pers.xiaoming.java_spring.entity.AOPTargetImpl"/>
+
+    <!-- Before Advice config-->
+    <bean id="myMethodBeforeAdvice" class="pers.xiaoming.java_spring.advice.MyBeforeAdvice"/>
+    <bean id="myAfterReturningAdvice" class="pers.xiaoming.java_spring.advice.MyAfterReturningAdvice"/>
+    <bean id="myMethodInterceptor" class="pers.xiaoming.java_spring.advice.MyMethodInterceptor"/>
+
+    <!--Advisor config-->
+    <bean id="beforeAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="myMethodBeforeAdvice"/>
+        <property name="mappedName" value="print"/>
+    </bean>
+
+    <bean id="afterAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="myAfterReturningAdvice"/>
+        <property name="mappedName" value="toUppercase, toLowercase"/>
+    </bean>
+
+    <bean id="methodInterceptorAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="myMethodInterceptor"/>
+        <property name="mappedName" value="to*"/>
+    </bean>
+
+    <!--proxy config-->
+    <bean id="beforeAdvisorProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="target"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
+        <property name="interceptorNames" value="beforeAdvisor"/>
+    </bean>
+
+    <bean id="afterAdvisorProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="target"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
+        <property name="interceptorNames" value="afterAdvisor"/>
+    </bean>
+
+    <bean id="methodInterceptorAdvisorProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="target"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
+        <property name="interceptorNames" value="methodInterceptorAdvisor"/>
+    </bean>
+</beans>

@@ -7,8 +7,14 @@
     <!--target object bean-->
     <bean id="target" class="pers.xiaoming.java_spring.entity.AOPTargetImpl"/>
 
-    <!-- Before Advice config-->
+    <!-- Advice config-->
     <bean id="myMethodBeforeAdvice" class="pers.xiaoming.java_spring.advice.MyBeforeAdvice"/>
+
+    <bean id="myAfterReturningAdvice" class="pers.xiaoming.java_spring.advice.MyAfterReturningAdvice"/>
+
+    <bean id="myMethodInterceptor" class="pers.xiaoming.java_spring.advice.MyMethodInterceptor"/>
+
+    <bean id="myThrowsAdvice" class="pers.xiaoming.java_spring.advice.MyThrowsAdvice"/>
 
     <!--Proxy config-->
     <!-- its backend is still java.lang.reflect.Proxy -->
@@ -18,23 +24,17 @@
         <property name="interceptorNames" value="myMethodBeforeAdvice"/>
     </bean>
 
-    <bean id="myAfterReturningAdvice" class="pers.xiaoming.java_spring.advice.MyAfterReturningAdvice"/>
-
     <bean id="afterAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
         <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
         <property name="interceptorNames" value="myAfterReturningAdvice"/>
     </bean>
 
-    <bean id="myMethodInterceptor" class="pers.xiaoming.java_spring.advice.MyMethodInterceptor"/>
-
     <bean id="methodInterceptorProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
         <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
         <property name="interceptorNames" value="myMethodInterceptor"/>
     </bean>
-
-    <bean id="myThrowsAdvice" class="pers.xiaoming.java_spring.advice.MyThrowsAdvice"/>
 
     <bean id="throwsAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
