@@ -4,7 +4,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import pers.xiaoming.java_spring.ClassInfoPrinter;
+import pers.xiaoming.java_spring.TestUtils;
 import pers.xiaoming.java_spring.entity.AOPTarget;
 import pers.xiaoming.java_spring.entity.AOPTargetNoInterface;
 
@@ -28,13 +28,13 @@ public class CGLIBAopTest {
     public void noInterfaceProxy() {
         ApplicationContext jdkAopAc = new ClassPathXmlApplicationContext("singleAdviseContext.xml");
         AOPTarget interfaceProxy = (AOPTarget) jdkAopAc.getBean("beforeAdviceProxy");
-        ClassInfoPrinter.print(interfaceProxy.getClass());
+        TestUtils.printClassInfo(interfaceProxy.getClass());
 
         ApplicationContext cglibAOPAc = new ClassPathXmlApplicationContext("cglibAdviseContext.xml");
         AOPTargetNoInterface noInterfaceProxy = (AOPTargetNoInterface) cglibAOPAc.getBean("noInterfaceProxy");
-        ClassInfoPrinter.print(noInterfaceProxy.getClass());
+        TestUtils.printClassInfo(noInterfaceProxy.getClass());
 
         AOPTarget forceCGLIBProxy = (AOPTarget) cglibAOPAc.getBean("forceCGLIBProxy");
-        ClassInfoPrinter.print(forceCGLIBProxy.getClass());
+        TestUtils.printClassInfo(forceCGLIBProxy.getClass());
     }
 }

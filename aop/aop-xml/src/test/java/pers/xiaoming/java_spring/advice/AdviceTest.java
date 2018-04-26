@@ -4,6 +4,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.TestUtils;
 import pers.xiaoming.java_spring.entity.AOPTarget;
 import pers.xiaoming.java_spring.entity.MyException;
 
@@ -14,25 +15,19 @@ public class AdviceTest {
     @Test
     public void testMethodBeforeAdvice() {
         AOPTarget target = (AOPTarget) ac.getBean("beforeAdviceProxy");
-        target.print();
-        System.out.println();
-        target.toUppercase("Ab!c");
+        TestUtils.testTarget(target);
     }
 
     @Test
     public void testAfterReturningAdvice() {
         AOPTarget target = (AOPTarget) ac.getBean("afterAdviceProxy");
-        target.print();
-        System.out.println();
-        target.toUppercase("Ab!c");
+        TestUtils.testTarget(target);
     }
 
     @Test
     public void testMethodInterceptorProxy() {
         AOPTarget target = (AOPTarget) ac.getBean("methodInterceptorProxy");
-        target.print();
-        System.out.println();
-        target.toUppercase("Ab!c");
+        TestUtils.testTarget(target);
     }
 
     @Test(expected = MyException.class)
@@ -50,9 +45,6 @@ public class AdviceTest {
     public void testMultiAspects() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("multiAdvicesContext.xml");
         AOPTarget target = (AOPTarget) ac.getBean("multiAspectProxy");
-
-        target.print();
-        System.out.println();
-        target.toUppercase("Ab!c");
+        TestUtils.testTarget(target);
     }
 }

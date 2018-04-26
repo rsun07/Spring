@@ -6,6 +6,7 @@
 
     <!--target object bean-->
     <bean id="target" class="pers.xiaoming.java_spring.entity.AOPTargetImpl"/>
+    <bean id="targetCopy" class="pers.xiaoming.java_spring.entity.AOPTargetImpl"/>
 
     <!-- Before Advice config-->
     <bean id="myMethodBeforeAdvice" class="pers.xiaoming.java_spring.advice.MyBeforeAdvice"/>
@@ -20,10 +21,6 @@
 
     <bean id="afterAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
         <property name="advice" ref="myAfterReturningAdvice"/>
-        <!--both works-->
-
-        <!--<property name="mappedNames" value="toUppercase, toLowercase"/>-->
-
         <property name="mappedNames">
             <list>
                 <value>toLowercase</value>
@@ -37,21 +34,9 @@
         <property name="mappedName" value="to*"/>
     </bean>
 
-    <bean id="regexAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
-        <property name="advice" ref="myMethodInterceptor"/>
-
-        <!--both works-->
-        <!--<property name="pattern" value="toL* | toU*"/>-->
-
-        <!--Be Careful, patters, 's' here-->
-        <property name="patterns">
-            <list>
-                <value>.*toL.*</value>
-                <value>.*toU.*</value>
-            </list>
-        </property>
-    </bean>
-
     <!--proxy config-->
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="targ*"/>
+        <property name="interceptorNames" value="beforeAdvisor, afterAdvisor, methodInterceptorAdvisor"/>
+    </bean>
 </beans>
