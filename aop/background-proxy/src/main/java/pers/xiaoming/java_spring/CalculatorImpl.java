@@ -1,7 +1,5 @@
 package pers.xiaoming.java_spring;
 
-import pers.xiaoming.java_spring.Calculator;
-
 public class CalculatorImpl implements Calculator {
     public int add(int a, int b) {
         int result = a + b;
