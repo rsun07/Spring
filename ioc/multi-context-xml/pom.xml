@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>pers.xiaoming.java_spring</groupId>
-        <artifactId>java_spring</artifactId>
+        <artifactId>ioc</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring.autowired_bean;
+package pers.xiaoming.java_spring.autowire.bean;
 
 public interface MyService {
     String showRepo();

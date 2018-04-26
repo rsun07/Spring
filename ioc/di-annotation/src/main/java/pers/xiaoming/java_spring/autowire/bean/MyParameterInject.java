@@ -1,8 +1,8 @@
-package pers.xiaoming.java_spring.autowired_bean;
+package pers.xiaoming.java_spring.autowire.bean;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import pers.xiaoming.java_spring.repository.MyRepository;
+import pers.xiaoming.java_spring.autowire.repository.MyRepository;
 
 import javax.inject.Inject;
 

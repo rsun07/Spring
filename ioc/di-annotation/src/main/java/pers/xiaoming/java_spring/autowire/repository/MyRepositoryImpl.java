@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring.repository;
+package pers.xiaoming.java_spring.autowire.repository;
 
 public class MyRepositoryImpl implements MyRepository {
 
