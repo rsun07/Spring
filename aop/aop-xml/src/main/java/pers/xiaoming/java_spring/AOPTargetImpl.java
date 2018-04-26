@@ -7,7 +7,7 @@ public class AOPTargetImpl implements AOPTarget {
     }
 
     public String toUppercase(String str) {
-        System.out.println("Executing AOP target class output()");
+        System.out.println("Executing AOP target class toUppercase()");
         return str.trim().toUpperCase();
     }
 }
