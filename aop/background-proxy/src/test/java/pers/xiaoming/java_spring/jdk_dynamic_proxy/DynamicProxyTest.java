@@ -5,9 +5,10 @@ import pers.xiaoming.java_spring.Calculator;
 import pers.xiaoming.java_spring.CalculatorImpl;
 
 public class DynamicProxyTest {
+    private Calculator target = new CalculatorImpl();
+
     @Test
     public void test() {
-        Calculator target = new CalculatorImpl();
         Calculator proxy = new CalculatorLoggingProxy(target).getLoggingProxy();
 
         proxy.add(2, 8);
@@ -20,5 +21,21 @@ public class DynamicProxyTest {
 
         // com.sun.proxy.$Proxy4
         System.out.println(proxy.getClass().getName());
+    }
+
+    /*
+        JDK dynamic proxy is proxy based on interface.
+        See java.lang.reflect.Proxy implement for more detail.
+
+        java.lang.ClassCastException: com.sun.proxy.$Proxy4 cannot be cast to pers.xiaoming.java_spring.CalculatorImpl
+     */
+    @Test(expected = ClassCastException.class)
+    public void testCastToImpl() {
+        try {
+            CalculatorImpl proxy = (CalculatorImpl) new CalculatorLoggingProxy(target).getLoggingProxy();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 }
