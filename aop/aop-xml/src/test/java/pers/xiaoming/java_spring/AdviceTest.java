@@ -11,6 +11,7 @@ public class AdviceTest {
     public void testMethodBeforeAdvice() {
         AOPTarget target = (AOPTarget) ac.getBean("beforeAdviceProxy");
         target.print();
+        System.out.println();
         target.toUppercase("Ab!c");
     }
 
@@ -18,6 +19,15 @@ public class AdviceTest {
     public void testAfterReturningAdvice() {
         AOPTarget target = (AOPTarget) ac.getBean("afterAdviceProxy");
         target.print();
+        System.out.println();
+        target.toUppercase("Ab!c");
+    }
+
+    @Test
+    public void testMethodInterceptorProxy() {
+        AOPTarget target = (AOPTarget) ac.getBean("methodInterceptorProxy");
+        target.print();
+        System.out.println();
         target.toUppercase("Ab!c");
     }
 }
