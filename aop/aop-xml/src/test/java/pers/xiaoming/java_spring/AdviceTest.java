@@ -1,9 +1,11 @@
 package pers.xiaoming.java_spring;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+@Ignore("demo test")
 public class AdviceTest {
     private ApplicationContext ac = new ClassPathXmlApplicationContext("singleAopContext.xml");
 
