@@ -20,7 +20,7 @@
 
     <bean id="afterAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
         <property name="advice" ref="myAfterReturningAdvice"/>
-        <property name="mappedName" value="toUppercase, toLowercase"/>
+        <property name="mappedNames" value="toUppercase, toLowercase"/>
     </bean>
 
     <bean id="methodInterceptorAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
