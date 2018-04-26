@@ -1,6 +1,6 @@
-package pers.xiaoming.java_spring.jdk_dynamic_proxy;
+package pers.xiaoming.java_spring;
 
-import pers.xiaoming.java_spring.non_apo_impl.Calculator;
+import pers.xiaoming.java_spring.Calculator;
 
 public class CalculatorImpl implements Calculator {
     public int add(int a, int b) {

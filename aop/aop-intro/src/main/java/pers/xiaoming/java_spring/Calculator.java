@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring.non_apo_impl;
+package pers.xiaoming.java_spring;
 
 public interface Calculator {
     int add(int a, int b);

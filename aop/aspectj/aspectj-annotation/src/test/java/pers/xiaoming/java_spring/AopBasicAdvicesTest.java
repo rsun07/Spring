@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pers.xiaoming.java_spring.non_apo_impl.Calculator;
+import pers.xiaoming.java_spring.static_proxy.Calculator;
 
 public class AopBasicAdvicesTest {
     private ApplicationContext ctx;

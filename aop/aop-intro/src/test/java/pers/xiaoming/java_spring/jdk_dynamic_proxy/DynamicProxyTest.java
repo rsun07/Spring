@@ -1,7 +1,8 @@
 package pers.xiaoming.java_spring.jdk_dynamic_proxy;
 
 import org.junit.Test;
-import pers.xiaoming.java_spring.non_apo_impl.Calculator;
+import pers.xiaoming.java_spring.Calculator;
+import pers.xiaoming.java_spring.CalculatorImpl;
 
 public class DynamicProxyTest {
     @Test
