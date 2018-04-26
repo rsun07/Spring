@@ -13,9 +13,17 @@
 
     <!--Proxy config-->
     <!-- its backend is still java.lang.reflect.Proxy -->
-    <bean id="aopProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+    <bean id="beforeAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
         <!--<property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>-->
         <property name="interceptorNames" value="myMethodBeforeAdvice"/>
+    </bean>
+
+    <bean id="myAfterReturningAdvice" class="pers.xiaoming.java_spring.MyAfterReturningAdvice"/>
+
+    <bean id="afterAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="target"/>
+        <!--<property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>-->
+        <property name="interceptorNames" value="myAfterReturningAdvice"/>
     </bean>
 </beans>
