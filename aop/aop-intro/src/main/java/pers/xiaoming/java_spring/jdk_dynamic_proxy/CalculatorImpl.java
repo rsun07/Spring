@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring.dynamic_proxy_intro;
+package pers.xiaoming.java_spring.jdk_dynamic_proxy;
 
 import pers.xiaoming.java_spring.non_apo_impl.Calculator;
 
