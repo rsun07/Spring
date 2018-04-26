@@ -5,26 +5,28 @@ import pers.xiaoming.java_spring.Calculator;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
+import java.util.List;
 
-public class ChargableCalculatorProxy {
+public class ChargableCalculatorUnionedInterfaceProxy {
 
-    private ChargableCalculatorImpl target;
+    private ChargableCalculator target;
 
-    public ChargableCalculatorProxy(ChargableCalculatorImpl target) {
+    public ChargableCalculatorUnionedInterfaceProxy(ChargableCalculator target) {
         this.target = target;
     }
 
-    public ChargableCalculatorImpl getChargableCalculatorProxy() {
-        ChargableCalculatorImpl proxy = null;
+    public ChargableCalculator getChargableCalculatorProxy() {
+        ChargableCalculator proxy = null;
 
         ClassLoader classLoader = target.getClass().getClassLoader();
 
-        Class[] interfaces = new Class[]{Calculator.class, Chargable.class};
+        Class[] interfaces = new Class[]{ChargableCalculator.class};
 
         InvocationHandler invocationHandler = (proxy1, method, args) -> {
 
             String methodName = method.getName();
-            System.out.println("Running the " + methodName + " method begins with " + Arrays.asList(args));
+            List<Object> argList = args == null ? null : Arrays.asList(args);
+            System.out.println("Running the " + methodName + " method begins with " + argList);
 
             Object result = null;
             try {
@@ -38,7 +40,7 @@ public class ChargableCalculatorProxy {
             return result;
         };
 
-        proxy = (ChargableCalculatorImpl) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
+        proxy = (ChargableCalculator) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
         return proxy;
     }
 }

@@ -2,11 +2,11 @@ package pers.xiaoming.java_spring.jdk_dynamic_proxy.advanced;
 
 import pers.xiaoming.java_spring.Calculator;
 
-public class ChargableCalculatorImpl implements Calculator, Chargable {
+public class ChargableCalculatorSeparatedInterfacesImpl implements Calculator, Chargable {
     private Calculator calculator;
     private Chargable charger;
 
-    public ChargableCalculatorImpl(Calculator calculator, Chargable charger) {
+    public ChargableCalculatorSeparatedInterfacesImpl(Calculator calculator, Chargable charger) {
         this.calculator = calculator;
         this.charger = charger;
     }
