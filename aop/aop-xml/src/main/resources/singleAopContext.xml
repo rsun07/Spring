@@ -14,6 +14,15 @@
     <!-- its backend is still java.lang.reflect.Proxy -->
     <bean id="beforeAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
+        <property name="interceptorNames" value="myMethodBeforeAdvice"/>
+    </bean>
+
+    <!--if no interface provided, spring will use CGLIB to do the proxy-->
+    <bean id="noInterfaceTarget" class="pers.xiaoming.java_spring.AOPTargetImpl"/>
+
+    <bean id="noInterfaceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="noInterfaceTarget"/>
         <!--<property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>-->
         <property name="interceptorNames" value="myMethodBeforeAdvice"/>
     </bean>
@@ -22,7 +31,7 @@
 
     <bean id="afterAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <!--<property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>-->
+        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
         <property name="interceptorNames" value="myAfterReturningAdvice"/>
     </bean>
 
@@ -30,7 +39,7 @@
 
     <bean id="methodInterceptorProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <!--<property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>-->
+        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
         <property name="interceptorNames" value="myMethodInterceptor"/>
     </bean>
 
@@ -38,7 +47,7 @@
 
     <bean id="throwsAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <!--<property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>-->
+        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
         <property name="interceptorNames" value="myThrowsAdvice"/>
     </bean>
 </beans>

@@ -49,5 +49,6 @@ public class AdviceTest {
 
         target.print();
         System.out.println();
-        target.toUppercase("Ab!c");    }
+        target.toUppercase("Ab!c");
+    }
 }
