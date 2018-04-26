@@ -2,7 +2,6 @@ package pers.xiaoming.java_spring.di_xml_entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 // because testing constructor injection
 // no need for NoArgsConstructor

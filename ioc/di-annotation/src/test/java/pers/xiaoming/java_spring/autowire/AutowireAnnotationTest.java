@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pers.xiaoming.java_spring.autowire.AppConfig;
 import pers.xiaoming.java_spring.autowire.bean.MyNotRequiredAutowired;
 import pers.xiaoming.java_spring.autowire.bean.MyService;
 
