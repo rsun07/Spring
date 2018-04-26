@@ -37,4 +37,14 @@ public class AdvisorTest {
         System.out.println();
         target.toLowercase("Abc");
     }
+
+    @Test
+    public void testRegexAdvisor() {
+        AOPTarget target = (AOPTarget) ac.getBean("regexAdvisorProxy");
+        target.print();
+        System.out.println();
+        target.toUppercase("Abc");
+        System.out.println();
+        target.toLowercase("Abc");
+    }
 }
