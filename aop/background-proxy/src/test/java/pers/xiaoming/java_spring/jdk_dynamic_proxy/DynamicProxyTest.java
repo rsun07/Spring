@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import pers.xiaoming.java_spring.Calculator;
 import pers.xiaoming.java_spring.CalculatorImpl;
+import pers.xiaoming.java_spring.ClassInfoPrinter;
 
 import java.util.Arrays;
 
@@ -30,20 +31,10 @@ public class DynamicProxyTest {
         Assert.assertEquals(2, proxy.div(8,3));
 
         // CalculatorImpl
-        printClassInfo(target.getClass());
+        ClassInfoPrinter.print(target.getClass());
 
         // com.sun.proxy.$Proxy4
-        printClassInfo(proxy.getClass());
-    }
-
-    private void printClassInfo(Class myClass) {
-        System.out.printf("\nClass name is : %s\n"
-                + "Super Class is : %s\n"
-                + "Interfaces are : %s\n",
-                myClass.getName(),
-                myClass.getSuperclass(),
-                Arrays.asList(myClass.getInterfaces()));
-
+        ClassInfoPrinter.print(proxy.getClass());
     }
 
     /*
