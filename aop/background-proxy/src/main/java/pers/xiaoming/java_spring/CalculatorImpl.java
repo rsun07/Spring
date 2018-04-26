@@ -20,4 +20,12 @@ public class CalculatorImpl implements Calculator {
         int result = a / b;
         return result;
     }
+
+    private long add(long a, long b) {
+        return a + b;
+    }
+
+    public final long sub(long a, long b) {
+        return a - b;
+    }
 }

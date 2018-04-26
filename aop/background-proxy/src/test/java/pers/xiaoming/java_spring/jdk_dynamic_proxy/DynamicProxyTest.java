@@ -30,6 +30,12 @@ public class DynamicProxyTest {
         Assert.assertEquals(24, proxy.mul(8,3));
         Assert.assertEquals(2, proxy.div(8,3));
 
+        // cannot proxy private method
+        // proxy.add(2L, 8L);
+
+        // cannot proxy final method
+        // proxy.sub(8L, 3L);
+
         // CalculatorImpl
         ClassInfoPrinter.print(target.getClass());
 

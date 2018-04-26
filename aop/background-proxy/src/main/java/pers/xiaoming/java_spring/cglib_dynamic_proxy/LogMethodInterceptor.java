@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 
-public class LogMethodInteceptor implements MethodInterceptor {
+public class LogMethodInterceptor implements MethodInterceptor {
     @Override
     public Object intercept(Object object, Method method, Object[] args, MethodProxy proxy) throws Throwable {
         String methodName = method.getName();

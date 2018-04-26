@@ -17,7 +17,7 @@ public class DynamicProxyTest {
     public void test() {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(NoInterfaceCalculator.class);
-        enhancer.setCallback(new LogMethodInteceptor());
+        enhancer.setCallback(new LogMethodInterceptor());
 
         NoInterfaceCalculator proxy = (NoInterfaceCalculator) enhancer.create();
         Assert.assertEquals(10, proxy.add(2,8));
