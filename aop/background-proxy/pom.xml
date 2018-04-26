@@ -9,4 +9,16 @@
     </parent>
 
     <artifactId>background-proxy</artifactId>
+
+    <properties>
+        <cglib.version>2.2.2</cglib.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib.version}</version>
+        </dependency>
+    </dependencies>
 </project>
