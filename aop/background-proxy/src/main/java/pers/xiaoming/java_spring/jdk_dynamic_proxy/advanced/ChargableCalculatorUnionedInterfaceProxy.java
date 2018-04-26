@@ -1,11 +1,9 @@
 package pers.xiaoming.java_spring.jdk_dynamic_proxy.advanced;
 
-import pers.xiaoming.java_spring.Calculator;
+import pers.xiaoming.java_spring.jdk_dynamic_proxy.LogInvocationHandler;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
-import java.util.Arrays;
-import java.util.List;
 
 public class ChargableCalculatorUnionedInterfaceProxy {
 
@@ -22,23 +20,7 @@ public class ChargableCalculatorUnionedInterfaceProxy {
 
         Class[] interfaces = new Class[]{ChargableCalculator.class};
 
-        InvocationHandler invocationHandler = (proxy1, method, args) -> {
-
-            String methodName = method.getName();
-            List<Object> argList = args == null ? null : Arrays.asList(args);
-            System.out.println("Running the " + methodName + " method begins with " + argList);
-
-            Object result = null;
-            try {
-                result = method.invoke(target, args);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-
-            System.out.println("Running the " + methodName + " method ends with " + result + "\n");
-            return result;
-        };
+        InvocationHandler invocationHandler = new LogInvocationHandler(target);
 
         proxy = (ChargableCalculator) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
         return proxy;

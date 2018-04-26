@@ -2,7 +2,6 @@ package pers.xiaoming.java_spring.lifecycle.entity;
 
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
