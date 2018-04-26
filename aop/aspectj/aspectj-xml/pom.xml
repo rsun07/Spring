@@ -4,20 +4,11 @@
 
     <parent>
         <groupId>pers.xiaoming.java_spring</groupId>
-        <artifactId>java_spring</artifactId>
+        <artifactId>aspectj</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>aop</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>aop-intro</module>
-        <module>aop-xml</module>
-        <module>aop-annotation</module>
-        <module>aspectj</module>
-    </modules>
-
+    <artifactId>aspectj-xml</artifactId>
 
     <properties>
         <spring.version>4.2.5.RELEASE</spring.version>

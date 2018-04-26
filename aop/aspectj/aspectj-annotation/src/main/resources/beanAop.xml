@@ -5,16 +5,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <!--config target object-->
     <bean id = "aopCalculator"
           class = "CalculatorAopImpl">
     </bean>
 
-    <!--config Advices-->
     <bean id = "loggingAspect"
           class = "LoggingAspect"/>
 
-    <!--config Advice-->
     <bean id = "aroundAdvice"
           class="AroundAdvice"/>
 
@@ -42,7 +39,6 @@
     </aop:config>
 
 
-    <!--very important-->
     <aop:aspectj-autoproxy/>
 
 
