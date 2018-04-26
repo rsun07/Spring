@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>aop-intro</module>
+        <module>background-proxy</module>
         <module>aop-xml</module>
         <module>aop-annotation</module>
         <module>aspectj</module>
