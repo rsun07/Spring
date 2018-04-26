@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AdviceTest {
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("springAopContext.xml");
 
     @Test
     public void testMethodBeforeAdvice() {
@@ -29,5 +29,16 @@ public class AdviceTest {
         target.print();
         System.out.println();
         target.toUppercase("Ab!c");
+    }
+
+    @Test(expected = MyException.class)
+    public void testThrowsAdvice() throws MyException {
+        AOPTarget target = (AOPTarget) ac.getBean("throwsAdviceProxy");
+        try {
+            target.throwMyException();
+        } catch (MyException e) {
+            e.getMessage();
+            throw e;
+        }
     }
 }
