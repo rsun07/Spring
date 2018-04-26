@@ -34,22 +34,4 @@ public class AdvisorTest {
         AOPTarget target = (AOPTarget) ac.getBean("regexAdvisorProxy");
         TestUtils.testTarget(target);
     }
-
-    @Test
-    public void testDefaultAutoAdvisorProxyCreator() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("defaultAdvisorAutoCreatorContext.xml");
-
-        // get by target bean id directly rather than proxy bean id
-        AOPTarget target = (AOPTarget) ac.getBean("target");
-        TestUtils.testTarget(target);
-    }
-
-    @Test
-    public void testBeanNameAutoAdvisorProxyCreator() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("beanNameAutoCreatorContext.xml");
-
-        // get by target bean id directly rather than proxy bean id
-        AOPTarget target = (AOPTarget) ac.getBean("target");
-        TestUtils.testTarget(target);
-    }
 }
