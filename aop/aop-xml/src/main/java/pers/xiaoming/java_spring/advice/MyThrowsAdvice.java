@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.advice;
 
 import org.springframework.aop.ThrowsAdvice;
 

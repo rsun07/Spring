@@ -5,49 +5,40 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!--target object bean-->
-    <bean id="target" class="pers.xiaoming.java_spring.AOPTargetImpl"/>
+    <bean id="target" class="pers.xiaoming.java_spring.entity.AOPTargetImpl"/>
 
     <!-- Before Advice config-->
-    <bean id="myMethodBeforeAdvice" class="pers.xiaoming.java_spring.MyBeforeAdvice"/>
+    <bean id="myMethodBeforeAdvice" class="pers.xiaoming.java_spring.advice.MyBeforeAdvice"/>
 
     <!--Proxy config-->
     <!-- its backend is still java.lang.reflect.Proxy -->
     <bean id="beforeAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
         <property name="interceptorNames" value="myMethodBeforeAdvice"/>
     </bean>
 
-    <!--if no interface provided, spring will use CGLIB to do the proxy-->
-    <bean id="noInterfaceTarget" class="pers.xiaoming.java_spring.AOPTargetImpl"/>
-
-    <bean id="noInterfaceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="target" ref="noInterfaceTarget"/>
-        <!--<property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>-->
-        <property name="interceptorNames" value="myMethodBeforeAdvice"/>
-    </bean>
-
-    <bean id="myAfterReturningAdvice" class="pers.xiaoming.java_spring.MyAfterReturningAdvice"/>
+    <bean id="myAfterReturningAdvice" class="pers.xiaoming.java_spring.advice.MyAfterReturningAdvice"/>
 
     <bean id="afterAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
         <property name="interceptorNames" value="myAfterReturningAdvice"/>
     </bean>
 
-    <bean id="myMethodInterceptor" class="pers.xiaoming.java_spring.MyMethodInterceptor"/>
+    <bean id="myMethodInterceptor" class="pers.xiaoming.java_spring.advice.MyMethodInterceptor"/>
 
     <bean id="methodInterceptorProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
         <property name="interceptorNames" value="myMethodInterceptor"/>
     </bean>
 
-    <bean id="myThrowsAdvice" class="pers.xiaoming.java_spring.MyThrowsAdvice"/>
+    <bean id="myThrowsAdvice" class="pers.xiaoming.java_spring.advice.MyThrowsAdvice"/>
 
     <bean id="throwsAdviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <property name="interfaces" value="pers.xiaoming.java_spring.AOPTarget"/>
+        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
         <property name="interceptorNames" value="myThrowsAdvice"/>
     </bean>
 </beans>

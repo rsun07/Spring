@@ -1,13 +1,15 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.advice;
 
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.entity.AOPTarget;
+import pers.xiaoming.java_spring.entity.MyException;
 
 @Ignore("demo test")
 public class AdviceTest {
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("singleAopContext.xml");
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("singleAdviseContext.xml");
 
     @Test
     public void testMethodBeforeAdvice() {
@@ -46,7 +48,7 @@ public class AdviceTest {
 
     @Test
     public void testMultiAspects() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("multiAspectsAopContext.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("multiAdvicesContext.xml");
         AOPTarget target = (AOPTarget) ac.getBean("multiAspectProxy");
 
         target.print();
