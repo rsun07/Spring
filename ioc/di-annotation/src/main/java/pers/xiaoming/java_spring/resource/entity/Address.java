@@ -13,4 +13,13 @@ public class Address {
 
     @Value("12345")
     private int zipcode;
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "num=" + num +
+                ", street='" + street + '\'' +
+                ", zipcode=" + zipcode +
+                '}';
+    }
 }

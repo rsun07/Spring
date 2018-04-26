@@ -13,4 +13,12 @@ public class School {
     // with name, inject by bean name
     @Resource(name = "schoolAddress")
     private Address address;
+
+    @Override
+    public String toString() {
+        return "School{" +
+                "name='" + name + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }
