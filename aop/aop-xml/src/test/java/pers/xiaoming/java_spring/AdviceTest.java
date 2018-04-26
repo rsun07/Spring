@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AdviceTest {
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("springAopContext.xml");
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("singleAopContext.xml");
 
     @Test
     public void testMethodBeforeAdvice() {
@@ -41,4 +41,13 @@ public class AdviceTest {
             throw e;
         }
     }
+
+    @Test
+    public void testMultiAspects() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("multiAspectsAopContext.xml");
+        AOPTarget target = (AOPTarget) ac.getBean("multiAspectProxy");
+
+        target.print();
+        System.out.println();
+        target.toUppercase("Ab!c");    }
 }
