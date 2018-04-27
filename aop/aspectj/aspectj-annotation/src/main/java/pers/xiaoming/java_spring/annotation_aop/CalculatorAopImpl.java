@@ -3,7 +3,8 @@ package pers.xiaoming.java_spring.annotation_aop;
 import org.springframework.stereotype.Component;
 
 @Component("aopCalculator")
-public class CalculatorAopImpl implements Calculator {
+// doesn't need interface as using CGLIB
+public class CalculatorAopImpl {
     CalculatorAopImpl() {
     }
 

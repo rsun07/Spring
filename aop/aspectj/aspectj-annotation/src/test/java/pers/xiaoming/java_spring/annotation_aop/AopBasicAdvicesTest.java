@@ -8,12 +8,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class AopBasicAdvicesTest {
     private ApplicationContext ac;
-    private Calculator calculator;
+    private CalculatorAopImpl calculator;
 
     @Before
     public void setUp() {
         ac = new AnnotationConfigApplicationContext(AppConfig.class);
-        calculator = (Calculator) ac.getBean("aopCalculatorImpl");
+        calculator = (CalculatorAopImpl) ac.getBean("aopCalculatorImpl");
     }
 
     @Test
