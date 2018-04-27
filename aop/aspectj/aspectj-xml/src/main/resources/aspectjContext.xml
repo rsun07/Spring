@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version = "1.0" encoding = "UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <!--config target object-->
     <bean id = "aopCalculator"
@@ -14,22 +16,20 @@
     <bean id = "loggingAspect"
           class = "pers.xiaoming.java_spring.xml_aop.LoggingAspect"/>
 
-    <!--config Advice-->
     <bean id = "aroundAdvice"
           class="pers.xiaoming.java_spring.xml_aop.AroundAdvice"/>
 
     <!--AOP config-->
     <aop:config>
-       <aop:pointcut expression="execution(public int CalculatorAopImpl.*(..))"
+       <aop:pointcut expression="execution(* *..CalculatorAopImpl.*(int, int))"
                      id = "declareJointPointExpress"/>
         <aop:aspect ref="loggingAspect" order="1">
-            <aop:before method="beforeAdvice" pointcut-ref="declareJointPointExpress"/>
+            <aop:before method="beforeAdvice()" pointcut-ref="declareJointPointExpress"/>
+            <aop:before method="beforeAdvice(org.aspectj.lang.JoinPoint)" pointcut-ref="declareJointPointExpress"/>
             <aop:after method="afterAdvice" pointcut-ref="declareJointPointExpress"/>
             <aop:after-returning method="afterReturningAdvice" pointcut-ref="declareJointPointExpress"
                                  returning="result"/>
             <aop:after-throwing method="afterThrowingAdvice" pointcut-ref="declareJointPointExpress"
-                                throwing="e"/>
-            <aop:after-throwing method="afterThrowingNullpointerException" pointcut-ref="declareJointPointExpress"
                                 throwing="e"/>
             <aop:after-throwing method="afterThrowingArithmeticException" pointcut-ref="declareJointPointExpress"
                                 throwing="e"/>
@@ -37,7 +37,7 @@
 
         <aop:aspect ref="aroundAdvice" order="1">
             <aop:around method="aroundAdvice"
-                        pointcut="execution(public double CalculatorAopImpl.divide(int, int))"/>
+                        pointcut="execution(public double *..CalculatorAopImpl.divide(int, int))"/>
         </aop:aspect>
     </aop:config>
 
@@ -45,6 +45,5 @@
     <!--very important-->
     <!--generate proxy beans automatically-->
     <aop:aspectj-autoproxy/>
-
 
 </beans>

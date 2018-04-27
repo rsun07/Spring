@@ -39,5 +39,6 @@ public class AopBasicAdvicesTest {
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
-        }    }
+        }
+    }
 }

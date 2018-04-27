@@ -1,5 +1,6 @@
 package pers.xiaoming.java_spring.xml_aop;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -17,10 +18,14 @@ public class AopBasicAdvicesTest {
 
     @Test
     public void testBasic() {
-        calculator.add(2, 8);
-        calculator.sub(8, 3);
-        calculator.mul(8,3);
-        calculator.div(8,3);
+        Assert.assertEquals(10, calculator.add(2, 8));
+        System.out.println();
+        Assert.assertEquals(5, calculator.sub(8, 3));
+        System.out.println();
+        Assert.assertEquals(24, calculator.mul(8,3));
+        System.out.println();
+        Assert.assertEquals(2, calculator.div(8,3));
+        System.out.println();
     }
 
     @Test(expected = ArithmeticException.class)

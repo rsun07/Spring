@@ -26,6 +26,11 @@ public class AopAroundAdviceTest {
         // @After advice will run even though exception throw
         // @AfterReturning advice won't run because the exception
         // @AfterThrowing advice will run obviously
-        calculator.divide(1,0);
+        try {
+            calculator.div(1, 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 }

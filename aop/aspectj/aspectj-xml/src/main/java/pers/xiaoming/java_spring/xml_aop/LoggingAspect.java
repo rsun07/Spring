@@ -23,6 +23,10 @@ public class LoggingAspect {
         System.out.println("@Before Running the <" + methodName + "> method begins with " + args);
     }
 
+    public void beforeAdvice() {
+        System.out.println("@Before Empty Before Advice");
+    }
+
 
     //  Even tough exception throws, @After will still execute.
     //  But After advice cannot get the return value of the function.
