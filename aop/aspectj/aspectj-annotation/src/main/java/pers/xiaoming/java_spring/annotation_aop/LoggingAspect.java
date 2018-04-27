@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.annotation_aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

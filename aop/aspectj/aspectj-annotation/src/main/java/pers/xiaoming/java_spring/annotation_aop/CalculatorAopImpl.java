@@ -1,7 +1,6 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.annotation_aop;
 
 import org.springframework.stereotype.Component;
-import pers.xiaoming.java_spring.static_proxy.Calculator;
 
 @Component("aopCalculator")
 public class CalculatorAopImpl implements Calculator {

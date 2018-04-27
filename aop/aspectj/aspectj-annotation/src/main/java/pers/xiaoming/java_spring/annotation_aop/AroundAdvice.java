@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.annotation_aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -47,7 +47,7 @@ public class AroundAdvice {
             // @AfterThrowing advice
             System.out.println("@Around @AfterThrow The methods <" + methodName + "> throws Throwable: " + e.getMessage());
             // @After advice
-            System.out.println("@Around @After <" + methodName + "> method ends. Running even though exception was threw ");
+            System.out.println("@Around @After <" + methodName + "> exception throws. Running even though exception was threw ");
             throw new RuntimeException(e);
         }
         return result;

@@ -43,6 +43,7 @@
 
 
     <!--very important-->
+    <!--generate proxy beans automatically-->
     <aop:aspectj-autoproxy/>
 
 

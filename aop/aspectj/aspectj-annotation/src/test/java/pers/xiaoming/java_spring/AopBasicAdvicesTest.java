@@ -4,16 +4,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pers.xiaoming.java_spring.static_proxy.Calculator;
+import pers.xiaoming.java_spring.annotation_aop.AppConfig;
+import pers.xiaoming.java_spring.annotation_aop.Calculator;
 
 public class AopBasicAdvicesTest {
-    private ApplicationContext ctx;
+    private ApplicationContext ac;
     private Calculator calculator;
 
     @Before
     public void setUp() {
-        ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-        calculator = (Calculator) ctx.getBean("aopCalculator");
+        ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        calculator = (Calculator) ac.getBean("aopCalculatorImpl");
     }
 
     @Test
