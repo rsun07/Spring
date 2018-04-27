@@ -1,11 +1,12 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.xml_aop;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.xml_aop.CalculatorAopImpl;
 
-public class AopAroundAdviceTest {
+public class AopBasicAdvicesTest {
     private ApplicationContext ctx;
     private CalculatorAopImpl calculator;
 
@@ -16,16 +17,19 @@ public class AopAroundAdviceTest {
     }
 
     @Test
-    public void testNoException() {
-        calculator.divide(8,3);
+    public void testBasic() {
+        calculator.add(2, 8);
+        calculator.sub(8, 3);
+        calculator.mul(8,3);
+        calculator.div(8,3);
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test(expected = ArithmeticException.class)
     public void testException() {
         // @Begin advice will run
         // @After advice will run even though exception throw
         // @AfterReturning advice won't run because the exception
         // @AfterThrowing advice will run obviously
-        calculator.divide(1,0);
+        calculator.div(1,0);
     }
 }

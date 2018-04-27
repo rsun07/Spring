@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.xml_aop;
 
 public class CalculatorAopImpl {
     public CalculatorAopImpl() {

@@ -1,4 +1,4 @@
-package pers.xiaoming.java_spring;
+package pers.xiaoming.java_spring.xml_aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
