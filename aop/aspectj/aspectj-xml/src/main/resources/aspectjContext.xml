@@ -7,16 +7,16 @@
 
     <!--config target object-->
     <bean id = "aopCalculator"
-          class = "CalculatorAopImpl">
+          class = "pers.xiaoming.java_spring.xml_aop.CalculatorAopImpl">
     </bean>
 
     <!--config Advices-->
     <bean id = "loggingAspect"
-          class = "LoggingAspect"/>
+          class = "pers.xiaoming.java_spring.xml_aop.LoggingAspect"/>
 
     <!--config Advice-->
     <bean id = "aroundAdvice"
-          class="AroundAdvice"/>
+          class="pers.xiaoming.java_spring.xml_aop.AroundAdvice"/>
 
     <!--AOP config-->
     <aop:config>

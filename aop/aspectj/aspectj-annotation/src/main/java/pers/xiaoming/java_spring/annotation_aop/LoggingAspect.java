@@ -17,6 +17,7 @@ import java.util.List;
 // initialize the class as an Aspect, inject to IOC container
 @Aspect
 // Don't forget this
+// Enable auto generator of Proxy beans
 @EnableAspectJAutoProxy
 
 // we can use @Order to set the priority of an Aspect
@@ -27,7 +28,7 @@ import java.util.List;
 public class LoggingAspect {
 
     /**
-     * Use to define the <Joint Point> for reuse.
+     * Use to define the <Joint Point> for duplicate .
      */
     @Pointcut("execution(public int CalculatorAopImpl.*(int, int))")
     public void declareJointPointExpress() {
@@ -49,10 +50,10 @@ public class LoggingAspect {
     }
 
 
+    // declareJointPointExpress() is defined above, used like a variable for common packagees, classes and methods
+    @After("declareJointPointExpress()")
     //  Even tough exception throws, @After will still execute.
     //  But After advice cannot get the return value of the function.
-
-    @After("declareJointPointExpress()")
     public void afterAdvice(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         List<Object> args = Arrays.asList(joinPoint.getArgs());

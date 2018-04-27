@@ -1,11 +1,10 @@
 package pers.xiaoming.java_spring.annotation_aop;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pers.xiaoming.java_spring.annotation_aop.AppConfig;
-import pers.xiaoming.java_spring.annotation_aop.CalculatorAopImpl;
 
 public class AopAroundAdviceTest {
     private ApplicationContext ac;
@@ -19,7 +18,8 @@ public class AopAroundAdviceTest {
 
     @Test
     public void testNoException() {
-        calculator.divide(8,3);
+        // only divide() method triggers around aspect
+        Assert.assertEquals(2, calculator.divide(8,3), 0.0001);
     }
 
     @Test(expected = RuntimeException.class)

@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import pers.xiaoming.java_spring.xml_aop.CalculatorAopImpl;
 
 public class AopBasicAdvicesTest {
     private ApplicationContext ctx;
@@ -12,7 +11,7 @@ public class AopBasicAdvicesTest {
 
     @Before
     public void setUp() {
-        ctx = new ClassPathXmlApplicationContext("beanAop.xml");
+        ctx = new ClassPathXmlApplicationContext("aspectjContext.xml");
         calculator = (CalculatorAopImpl) ctx.getBean("aopCalculator");
     }
 

@@ -16,7 +16,7 @@ public class AroundAdvice {
 
     /**
      *
-     * Around advice should have parameter #ProceddingJoinPoint
+     * Around advice should have parameter #ProceedingJoinPoint
      *
      * Around advice could control the whole process of the target method execution.
      * It could contain Before advice, After advice, AfterReturning advice and AfterThrowing advice.
