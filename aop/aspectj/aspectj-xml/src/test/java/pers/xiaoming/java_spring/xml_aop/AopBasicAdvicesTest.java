@@ -2,18 +2,28 @@ package pers.xiaoming.java_spring.xml_aop;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.xiaoming.java_spring.TestUtils;
 
 public class AopBasicAdvicesTest {
-    private ApplicationContext ctx;
-    private CalculatorAopImpl calculator;
+    private static ApplicationContext ctx;
+    private static CalculatorAopImpl calculator;
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         ctx = new ClassPathXmlApplicationContext("aspectjContext.xml");
         calculator = (CalculatorAopImpl) ctx.getBean("aopCalculator");
+
+        /*
+            Class name is : pers.xiaoming.java_spring.xml_aop.CalculatorAopImpl$$EnhancerBySpringCGLIB$$7cfcfc8a
+            Super Class is : class pers.xiaoming.java_spring.xml_aop.CalculatorAopImpl
+            Interfaces are : [interface org.springframework.aop.SpringProxy, interface org.springframework.aop.framework.Advised, interface org.springframework.cglib.proxy.Factory]
+         */
+        TestUtils.printClassInfo(calculator.getClass());
+        System.out.println();
     }
 
     @Test

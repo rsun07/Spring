@@ -2,24 +2,33 @@ package pers.xiaoming.java_spring.annotation_aop;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import pers.xiaoming.java_spring.TestUtils;
 
 public class AopBasicAdvicesTest {
-    private ApplicationContext ac;
-    private CalculatorAopImpl calculator;
+    private static ApplicationContext ac;
+    private static CalculatorAopImpl calculator;
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         ac = new AnnotationConfigApplicationContext(AppConfig.class);
         calculator = (CalculatorAopImpl) ac.getBean("aopCalculatorImpl");
+
+        /*
+            Class name is : pers.xiaoming.java_spring.annotation_aop.CalculatorAopImpl$$EnhancerBySpringCGLIB$$2904fd94
+            Super Class is : class pers.xiaoming.java_spring.annotation_aop.CalculatorAopImpl
+            Interfaces are : [interface org.springframework.aop.scope.ScopedObject, interface java.io.Serializable, interface org.springframework.aop.framework.AopInfrastructureBean, interface org.springframework.aop.SpringProxy, interface org.springframework.aop.framework.Advised, interface org.springframework.cglib.proxy.Factory]
+         */
+        TestUtils.printClassInfo(calculator.getClass());
+        System.out.println();
     }
 
     @Test
     public void testBasic() {
         Assert.assertEquals(10, calculator.add(2, 8));
-        System.out.println();
         Assert.assertEquals(5, calculator.sub(8, 3));
         System.out.println();
         Assert.assertEquals(24, calculator.mul(8,3));
