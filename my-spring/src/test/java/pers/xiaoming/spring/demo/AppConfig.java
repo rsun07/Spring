@@ -12,7 +12,4 @@ public class AppConfig {
     public MyServiceConfig getMyServiceConfig(@MyValue("myspring.config.service.value") String myValue) {
         return new MyServiceConfig(myValue);
     }
-
-
-
 }
