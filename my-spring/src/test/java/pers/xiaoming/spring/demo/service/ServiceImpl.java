@@ -1,7 +1,7 @@
-package pers.xiaoming.spring.myspring.service;
+package pers.xiaoming.spring.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import pers.xiaoming.spring.myspring.dao.Dao;
+import pers.xiaoming.spring.demo.dao.Dao;
 
 public class ServiceImpl implements Service {
     private MyServiceConfig config;
