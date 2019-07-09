@@ -4,26 +4,26 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="myMethodBeforeAdvice" class="pers.xiaoming.java_spring.advice.MyBeforeAdvice"/>
+    <bean id="myMethodBeforeAdvice" class="pers.xiaoming.spring.advice.MyBeforeAdvice"/>
 
     <!--target object bean-->
-    <bean id="noInterfaceTarget" class="pers.xiaoming.java_spring.entity.AOPTargetNoInterface"/>
+    <bean id="noInterfaceTarget" class="pers.xiaoming.spring.entity.AOPTargetNoInterface"/>
 
     <!--if no interface provided, spring will use CGLIB to do the proxy-->
     <bean id="noInterfaceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="noInterfaceTarget"/>
         <!--no interface-->
-        <!--<property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>-->
+        <!--<property name="interfaces" value="pers.xiaoming.spring.entity.AOPTarget"/>-->
         <property name="interceptorNames" value="myMethodBeforeAdvice"/>
     </bean>
 
     <!--target object bean-->
-    <bean id="forceCGLIBtarget" class="pers.xiaoming.java_spring.entity.AOPTargetImpl"/>
+    <bean id="forceCGLIBtarget" class="pers.xiaoming.spring.entity.AOPTargetImpl"/>
 
     <!--if no interface provided, spring will use CGLIB to do the proxy-->
     <bean id="forceCGLIBProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="forceCGLIBtarget"/>
-        <property name="interfaces" value="pers.xiaoming.java_spring.entity.AOPTarget"/>
+        <property name="interfaces" value="pers.xiaoming.spring.entity.AOPTarget"/>
         <property name="interceptorNames" value="myMethodBeforeAdvice"/>
         <property name="proxyTargetClass" value="true"/>
     </bean>

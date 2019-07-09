@@ -4,18 +4,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="student" class="pers.xiaoming.java_spring.di_xml_entity.Student" autowire="byName">
+    <bean id="student" class="pers.xiaoming.spring.Student" autowire="byName">
         <property name="name" value="John"/>
         <property name="age" value="23"/>
     </bean>
 
     <!--id name must be same as java class attribute name when use autowire by name-->
-    <bean id="school" class="pers.xiaoming.java_spring.di_xml_entity.School" autowire="byType">
+    <bean id="school" class="pers.xiaoming.spring.School" autowire="byType">
         <constructor-arg name="name" value="MySchool"/>
     </bean>
 
     <!--id name could be different from java class attribute name because use autowire by type-->
-    <bean id="schoolAddress" class="pers.xiaoming.java_spring.di_xml_entity.Address">
+    <bean id="schoolAddress" class="pers.xiaoming.spring.Address">
         <constructor-arg name="num" value="8888"/>
         <constructor-arg name="street" value="CA DR"/>
         <constructor-arg name="zipcode" value="12345"/>

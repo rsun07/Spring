@@ -5,9 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!--parent specify the class path, so children don't need to-->
-    <bean id="studentBase" abstract="true" class="pers.xiaoming.java_spring.di_xml_entity.Student">
+    <bean id="studentBase" abstract="true" class="pers.xiaoming.spring.Student">
         <property name="school">
-            <bean id="mySchool" class="pers.xiaoming.java_spring.di_xml_entity.School">
+            <bean id="mySchool" class="pers.xiaoming.spring.School">
                 <constructor-arg name="name" value="MySchool"/>
             </bean>
         </property>
@@ -26,19 +26,19 @@
     <!--without specify the class to be a student-->
     <bean id="objectBase" abstract="true">
         <property name="school">
-            <bean id="objectSchool" class="pers.xiaoming.java_spring.di_xml_entity.School">
+            <bean id="objectSchool" class="pers.xiaoming.spring.School">
                 <constructor-arg name="name" value="ObjectSchool"/>
             </bean>
         </property>
     </bean>
 
     <!--Because the parent doesn't specify the class, so child need to specify the class path-->
-    <bean id="Marry" class="pers.xiaoming.java_spring.di_xml_entity.Student" parent="objectBase">
+    <bean id="Marry" class="pers.xiaoming.spring.Student" parent="objectBase">
         <property name="name" value="Marry"/>
         <property name="age" value="22"/>
     </bean>
 
-    <bean id="Jane" class="pers.xiaoming.java_spring.di_xml_entity.Student" parent="objectBase">
+    <bean id="Jane" class="pers.xiaoming.spring.Student" parent="objectBase">
         <property name="name" value="Jane"/>
         <property name="age" value="20"/>
     </bean>

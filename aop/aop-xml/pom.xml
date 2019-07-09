@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pers.xiaoming.java_spring</groupId>
+        <groupId>pers.xiaoming.spring</groupId>
         <artifactId>aop</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>

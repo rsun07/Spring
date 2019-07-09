@@ -9,15 +9,15 @@
 
     <!--config target object-->
     <bean id = "aopCalculator"
-          class = "pers.xiaoming.java_spring.xml_aop.CalculatorAopImpl">
+          class = "pers.xiaoming.spring.xml_aop.CalculatorAopImpl">
     </bean>
 
     <!--config Advices-->
     <bean id = "loggingAspect"
-          class = "pers.xiaoming.java_spring.xml_aop.LoggingAspect"/>
+          class = "pers.xiaoming.spring.xml_aop.LoggingAspect"/>
 
     <bean id = "aroundAdvice"
-          class="pers.xiaoming.java_spring.xml_aop.AroundAdvice"/>
+          class="pers.xiaoming.spring.xml_aop.AroundAdvice"/>
 
     <!--AOP config-->
     <aop:config>

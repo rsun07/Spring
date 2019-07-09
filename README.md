@@ -1,4 +1,4 @@
-# Java_Spring
+# spring
 
 Notes for basic Java Framework examples
 

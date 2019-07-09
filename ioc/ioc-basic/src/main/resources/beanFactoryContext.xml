@@ -5,9 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="dynamicBeanFactory" class="pers.xiaoming.java_spring.ioc_basic.factory.DynamicBeanFactory"/>
+    <bean id="dynamicBeanFactory" class="pers.xiaoming.spring.ioc_basic.factory.DynamicBeanFactory"/>
 
     <bean id="myDynamicBean" factory-bean="dynamicBeanFactory" factory-method="getMyBean"/>
 
-    <bean id="myStaticBean" class="pers.xiaoming.java_spring.ioc_basic.factory.StaticBeanFactory" factory-method="getMyBean"/>
+    <bean id="myStaticBean" class="pers.xiaoming.spring.ioc_basic.factory.StaticBeanFactory" factory-method="getMyBean"/>
 </beans>

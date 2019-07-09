@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="myEntityA" class="pers.xiaoming.java_spring.MyEntity">
+    <bean id="myEntityA" class="pers.xiaoming.spring.MyEntity">
         <constructor-arg name="name" value="myEntityA"/>
     </bean>
 </beans>

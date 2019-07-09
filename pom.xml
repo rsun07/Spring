@@ -2,17 +2,18 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>pers.xiaoming.java_spring</groupId>
-  <artifactId>java_spring</artifactId>
+  <groupId>pers.xiaoming.spring</groupId>
+  <artifactId>spring</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
     <module>ioc</module>
     <module>aop</module>
+    <module>my-spring</module>
   </modules>
 
-  <name>java_spring</name>
+  <name>spring</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -40,11 +41,10 @@
       <version>${spring.version}</version>
     </dependency>
 
-
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.16.10</version>
+      <version>1.16.22</version>
     </dependency>
 
     <!--Test dependencyies-->
