@@ -1,7 +1,7 @@
 package pers.xiaoming.spring.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import pers.xiaoming.spring.demo.dao.Dao;
+import pers.xiaoming.spring.myspring.annotation.MyAutowired;
 import pers.xiaoming.spring.myspring.annotation.MyService;
 
 @MyService
@@ -10,7 +10,7 @@ public class ServiceImpl implements Service {
 
     private Dao dao;
 
-    @Autowired
+    @MyAutowired
     public ServiceImpl(MyServiceConfig config) {
         this.config = config;
     }

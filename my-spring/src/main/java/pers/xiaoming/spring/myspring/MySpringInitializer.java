@@ -1,8 +1,10 @@
 package pers.xiaoming.spring.myspring;
 
+import pers.xiaoming.spring.myspring.annotation.MyAutowired;
 import pers.xiaoming.spring.myspring.annotation.MyBean;
 import pers.xiaoming.spring.myspring.annotation.MyComponent;
 import pers.xiaoming.spring.myspring.annotation.MyConfiguration;
+import pers.xiaoming.spring.myspring.annotation.MyQualifier;
 import pers.xiaoming.spring.myspring.annotation.MyService;
 import pers.xiaoming.spring.myspring.annotation.MySpringApp;
 import pers.xiaoming.spring.myspring.annotation.MyValue;
@@ -10,8 +12,8 @@ import pers.xiaoming.spring.myspring.annotation.MyValue;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.net.URL;
@@ -25,6 +27,7 @@ public class MySpringInitializer {
     private static final String DEFAULT_CONFIG_PATH = "classpath:application.properties";
     private Properties properties;
     private Map<String, Object> beanMap;
+
 
     public void init(Class className) {
         properties = loadProperties(DEFAULT_CONFIG_PATH);
@@ -77,41 +80,63 @@ public class MySpringInitializer {
 
     private void instanceBeans(List<String> classNames) {
         for (String className : classNames) {
+            Class<?> clazz;
             try {
-                Class<?> clazz = Class.forName(className);
-
-                if (clazz.isAnnotationPresent(MyConfiguration.class)) {
-                    instanceConfigBeans(clazz);
-                } else if (clazz.isAnnotationPresent(MyService.class) || clazz.isAnnotationPresent(MyComponent.class)) {
-                    instanceComponent(clazz);
-                } else {
-                    // ignore no annotated classes
-                }
-
+                clazz = Class.forName(className);
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException("Class not found " + className);
             }
+            instanceBean(clazz);
         }
     }
 
-    private void instanceConfigBeans(Class<?> clazz) {
+    // TODO : avoid same bean be initialize more than onece
+    private void instanceBean(Class clazz) {
+        if (clazz.isAnnotationPresent(MyConfiguration.class)) {
+            instanceConfigBean(clazz);
+        } else if (clazz.isAnnotationPresent(MyService.class) || clazz.isAnnotationPresent(MyComponent.class)) {
+            instanceComponent(clazz);
+        } else {
+            // ignore no annotated classes
+        }
+    }
+
+    private void instanceConfigBean(Class<?> clazz) {
         instanceFields(clazz);
 
         Method[] methods = clazz.getMethods();
         for (Method method : methods) {
-            Parameter[] params = method.getParameters();
+            Parameter[] paramClasses = method.getParameters();
+            Object[] parameters = new Object[];
             if (method.isAnnotationPresent(MyBean.class)) {
-                instanceParams(params);
+                parameters = instanceParams(paramClasses);
             }
             try {
-                method.invoke(method, (Object[]) params);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
+                Object bean = method.invoke(method, parameters);
+                beanMap.put(beanNameHandler(method), bean);
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
     }
+
+    private String beanNameHandler(Method method) {
+        MyBean myBean = method.getAnnotation(MyBean.class);
+        String defaultName = myBean.value();
+        if (!"".equals(defaultName)) {
+            return defaultName;
+        }
+
+        String beanClassName = method.getReturnType().getName();
+        return firstLetterLower(beanClassName);
+    }
+
+    private String firstLetterLower(String methodName) {
+        char[] chars = methodName.toCharArray();
+        chars[0] += 32;
+        return String.valueOf(chars);
+    }
+
 
     private void instanceFields(Class<?> clazz) {
         Field[] fields = clazz.getFields();
@@ -129,21 +154,65 @@ public class MySpringInitializer {
         }
     }
 
-    private void instanceParams(Parameter[] params) {
-        for (int i = 0; i < params.length; i++) {
-            if (params[i].isAnnotationPresent(MyValue.class)) {
-                MyValue myValue = params[i].getAnnotation(MyValue.class);
-                String key = myValue.value();
-
-                // here we need to handle param type
-                // just ignore here to reduce complexity
-                // Type type = params[i].getType();
-                params[i] = (Parameter) properties.get(key);
+    // Assumption: All @MyBean methods' or @MyAutowired Constructors' parameters are from beanMap
+    private Object[] instanceParams(Parameter[] paramClasses) {
+        Object[] parameters = new Object[paramClasses.length];
+        for (int i = 0; i < paramClasses.length; i++) {
+            if (paramClasses[i].isAnnotationPresent(MyValue.class)) {
+                String key = paramClasses[i].getAnnotation(MyValue.class).value();
+                parameters[i] = properties.get(key);
+            } else {
+                String beanName = "";
+                if (paramClasses[i].isAnnotationPresent(MyQualifier.class)) {
+                    beanName = paramClasses[i].getAnnotation(MyQualifier.class).value();
+                } else {
+                    beanName = firstLetterLower(paramClasses[i].getType().getName());
+                }
+                // If dependency bean is not initialized yet
+                // initialize that bean first
+                if (!beanMap.containsKey(beanName)) {
+                    instanceBean(paramClasses[i].getType());
+                }
+                parameters[i] = beanMap.get(beanName);
             }
         }
+        return parameters;
     }
 
+    // Only allow constructor @MyAutowired here
+    // Don't support fields @MyAutowired
     private void instanceComponent(Class<?> clazz) {
+        instanceFields(clazz);
+        Constructor[] constructors = clazz.getConstructors();
 
+        // If only one constructor is annotated by @MyAutowired, autowire that one
+        // If multiple constructors are annotated by @MyAutowired, throw exception
+        // if No constructor is annotated by @MyAutowired, only one constructor is allowed and autowired that constructor
+
+        Constructor targetConstructor = null;
+        for (Constructor constructor : constructors) {
+            if (constructor.isAnnotationPresent(MyAutowired.class)) {
+                if (targetConstructor != null) {
+                    throw new RuntimeException("Ambiguous constructors annotated");
+                }
+                targetConstructor = constructor;
+            }
+        }
+
+        if (targetConstructor == null && constructors.length != 1) {
+            throw new RuntimeException("Ambiguous constructors annotated");
+        }
+
+        targetConstructor = constructors[0];
+
+        Parameter[] paramClasses = targetConstructor.getParameters();
+        Object parameters = instanceParams(paramClasses);
+        try {
+            Object bean = targetConstructor.newInstance(parameters);
+            String beanName = firstLetterLower(targetConstructor.getName());
+            beanMap.put(beanName, bean);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
