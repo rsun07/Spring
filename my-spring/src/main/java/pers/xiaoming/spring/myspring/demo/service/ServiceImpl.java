@@ -1,6 +1,6 @@
-package pers.xiaoming.spring.demo.service;
+package pers.xiaoming.spring.myspring.demo.service;
 
-import pers.xiaoming.spring.demo.dao.Dao;
+import pers.xiaoming.spring.myspring.demo.dao.Dao;
 import pers.xiaoming.spring.myspring.annotation.MyAutowired;
 import pers.xiaoming.spring.myspring.annotation.MyService;
 
@@ -12,6 +12,7 @@ public class ServiceImpl implements Service {
 
     @MyAutowired
     public ServiceImpl(MyServiceConfig config) {
+        System.out.println("ServiceImpl Constructor");
         this.config = config;
     }
 

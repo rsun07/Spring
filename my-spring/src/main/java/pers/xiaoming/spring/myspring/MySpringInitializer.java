@@ -29,10 +29,10 @@ public class MySpringInitializer {
     private Map<String, Object> beanMap;
 
 
-    public void init(Class className) {
+    public void init(Class clazz) {
         properties = loadProperties(DEFAULT_CONFIG_PATH);
 
-        String packageName = getScanPackage(className);
+        String packageName = getScanPackage(clazz);
 
         List<String> classNames = new ArrayList<>();
         scanClasses(packageName, classNames);
@@ -62,7 +62,7 @@ public class MySpringInitializer {
     }
 
     private void scanClasses(String packageName, List<String> classNames) {
-        URL url = this.getClass().getClassLoader().getResource("/" + packageName.replaceAll("\\.","/"));
+        URL url = this.getClass().getClassLoader().getResource(packageName.replaceAll("\\.", "/"));
 
         if (url == null) return;
 
@@ -110,7 +110,8 @@ public class MySpringInitializer {
             if (method.isAnnotationPresent(MyBean.class)) {
                 Object[] parameters = instanceParams(paramClasses);
                 try {
-                    Object bean = method.invoke(method, parameters);
+                    Object obj = clazz.newInstance();
+                    Object bean = method.invoke(obj, parameters);
                     beanMap.put(beanNameHandler(method), bean);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
@@ -205,7 +206,7 @@ public class MySpringInitializer {
         targetConstructor = constructors[0];
 
         Parameter[] paramClasses = targetConstructor.getParameters();
-        Object parameters = instanceParams(paramClasses);
+        Object[] parameters = instanceParams(paramClasses);
         try {
             Object bean = targetConstructor.newInstance(parameters);
             String beanName = firstLetterLower(targetConstructor.getName());

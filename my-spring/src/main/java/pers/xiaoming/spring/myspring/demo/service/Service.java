@@ -1,6 +1,6 @@
-package pers.xiaoming.spring.demo.dao;
+package pers.xiaoming.spring.myspring.demo.service;
 
-public interface Dao {
+public interface Service {
     void set(String v);
 
     String[] getAll();

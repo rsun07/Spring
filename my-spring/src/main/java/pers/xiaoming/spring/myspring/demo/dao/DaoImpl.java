@@ -1,4 +1,4 @@
-package pers.xiaoming.spring.demo.dao;
+package pers.xiaoming.spring.myspring.demo.dao;
 
 import pers.xiaoming.spring.myspring.annotation.MyComponent;
 
@@ -10,6 +10,7 @@ public class DaoImpl implements Dao {
     private Set<String> storage;
 
     public DaoImpl() {
+        System.out.println("DaoImpl Constructor");
         this.storage = new HashSet<>();
     }
 
