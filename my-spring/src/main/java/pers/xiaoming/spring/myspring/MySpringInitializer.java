@@ -29,7 +29,7 @@ public class MySpringInitializer {
     private Map<String, Object> beanMap;
 
 
-    public void init(Class clazz) {
+    public Map<String, Object> init(Class clazz) {
         properties = loadProperties(DEFAULT_CONFIG_PATH);
 
         String packageName = getScanPackage(clazz);
@@ -39,6 +39,8 @@ public class MySpringInitializer {
 
         beanMap = new HashMap<>();
         instanceBeans(classNames);
+
+        return beanMap;
     }
 
     private Properties loadProperties(String propertyPath) {
@@ -90,11 +92,11 @@ public class MySpringInitializer {
         }
     }
 
-    // TODO : avoid same bean be initialize more than onece
+    // TODO : avoid same bean be initialize more than once
     private void instanceBean(Class clazz) {
         if (clazz.isAnnotationPresent(MyConfiguration.class)) {
             instanceConfigBean(clazz);
-        } else if (clazz.isAnnotationPresent(MyService.class) || clazz.isAnnotationPresent(MyComponent.class)) {
+        } else if (isComponent(clazz)) {
             instanceComponent(clazz);
         } else {
             // ignore no annotated classes
@@ -122,12 +124,12 @@ public class MySpringInitializer {
 
     private String beanNameHandler(Method method) {
         MyBean myBean = method.getAnnotation(MyBean.class);
-        String defaultName = myBean.value();
-        if (!"".equals(defaultName)) {
-            return defaultName;
+        String name = myBean.value();
+        if (!"".equals(name)) {
+            return name;
         }
 
-        String beanClassName = method.getReturnType().getName();
+        String beanClassName = method.getReturnType().getSimpleName();
         return firstLetterLower(beanClassName);
     }
 
@@ -209,10 +211,44 @@ public class MySpringInitializer {
         Object[] parameters = instanceParams(paramClasses);
         try {
             Object bean = targetConstructor.newInstance(parameters);
-            String beanName = firstLetterLower(targetConstructor.getName());
-            beanMap.put(beanName, bean);
+            addComponentToBeanMap(clazz, bean);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void addComponentToBeanMap(Class clazz, Object bean) {
+        String name = null;
+        if (isComponent(clazz)) {
+            name = getComponentCustomizedName(clazz);
+        }
+
+        if (name == null || "".equals(name)) {
+            Class<?>[] interfaces = clazz.getInterfaces();
+            for (Class<?> i : interfaces) {
+                beanMap.put(firstLetterLower(i.getSimpleName()), bean);
+            }
+            if (interfaces.length == 0) {
+                beanMap.put(firstLetterLower(clazz.getSimpleName()), bean);
+            }
+        } else {
+            beanMap.put(name, bean);
+        }
+    }
+
+    private boolean isComponent(Class clazz) {
+        return clazz.isAnnotationPresent(MyComponent.class)
+                || clazz.isAnnotationPresent(MyService.class);
+    }
+
+
+    private String getComponentCustomizedName(Class clazz) {
+        String name = null;
+        if (clazz.isAnnotationPresent(MyComponent.class)) {
+            name = ((MyComponent) clazz.getAnnotation(MyComponent.class)).name();
+        } else if (clazz.isAnnotationPresent(MyService.class)) {
+            name = ((MyService) clazz.getAnnotation(MyService.class)).name();
+        }
+        return name;
     }
 }

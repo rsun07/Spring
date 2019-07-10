@@ -5,7 +5,7 @@ import pers.xiaoming.spring.myspring.annotation.MyComponent;
 import java.util.HashSet;
 import java.util.Set;
 
-@MyComponent
+@MyComponent(name = "DaoServiceCustomizedName")
 public class DaoImpl implements Dao {
     private Set<String> storage;
 
