@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Properties;
 
 public class MySpringInitializer {
-    private static final String DEFAULT_CONFIG_PATH = "classpath:application.properties";
+    private static final String DEFAULT_CONFIG_PATH = "application.properties";
     private Properties properties;
     private Map<String, Object> beanMap;
 
@@ -107,15 +107,14 @@ public class MySpringInitializer {
         Method[] methods = clazz.getMethods();
         for (Method method : methods) {
             Parameter[] paramClasses = method.getParameters();
-            Object[] parameters = new Object[];
             if (method.isAnnotationPresent(MyBean.class)) {
-                parameters = instanceParams(paramClasses);
-            }
-            try {
-                Object bean = method.invoke(method, parameters);
-                beanMap.put(beanNameHandler(method), bean);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+                Object[] parameters = instanceParams(paramClasses);
+                try {
+                    Object bean = method.invoke(method, parameters);
+                    beanMap.put(beanNameHandler(method), bean);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
