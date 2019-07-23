@@ -1,14 +1,13 @@
 package pers.xiaoming.spring.autowire.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import pers.xiaoming.spring.autowire.repository.MyRepository;
 
-import javax.inject.Inject;
-
 @Controller("customized bean name: parameter inject")
 public class MyParameterInject implements MyService {
-    @Inject
+    @Autowired
     @Qualifier("My Repository")
     private MyRepository myRepo;
 
