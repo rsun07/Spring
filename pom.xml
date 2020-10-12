@@ -21,7 +21,7 @@
     <spring.version>4.2.5.RELEASE</spring.version>
     <lombok.version>1.16.22</lombok.version>
 
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
   </properties>
 
   <dependencyManagement>
